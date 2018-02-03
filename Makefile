@@ -9,7 +9,6 @@ SOURCES= \
 					
 					
 OBJECTS=$(SOURCES:.cpp=.o)
-OBJECTS=$(SOURCES:.cpp=.o)
 EXECUTABLE=vvm
 
 all: $(SOURCES) $(EXECUTABLE)
