@@ -3,6 +3,7 @@
 #include "lab.h"
 #include <iostream>
 #include "ivanovii.h"
+#include "scherbakovdv.h"
 
 void print_usage(char* name);
 
@@ -18,7 +19,7 @@ int main(int argc, char** argv)
   if (strcmp(argv[1], "ivanovii") == 0) {
     l = new ivanovii();
   }
-  else  {
+  else if (strcmp(argv[1],"scherbakovdv")==0) {
     print_usage(argv[0]);
     return 0;
   }
