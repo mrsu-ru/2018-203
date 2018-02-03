@@ -76,5 +76,5 @@ void scherbakovdv::lab8()
 
 std::string scherbakovdv::get_name()
 {
-  return "Ivanov I.I.";
+  return "Scherbakov D.V.";
 }
