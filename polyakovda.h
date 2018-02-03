@@ -34,6 +34,7 @@ class polyakovda : public lab
 
   virtual void lab8();
 
+  virtual void lab9();
 
   virtual std::string get_name();
 
