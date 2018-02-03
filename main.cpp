@@ -20,6 +20,8 @@ int main(int argc, char** argv)
     l = new ivanovii();
   }
   else if (strcmp(argv[1],"scherbakovdv")==0) {
+	l = new scherbakovdv();
+  }
     print_usage(argv[0]);
     return 0;
   }
