@@ -3,8 +3,9 @@ CFLAGS=-c -Wall -g
 LDFLAGS= -g
 SOURCES= \
         main.cpp \
-				ivanovii.cpp \
-				lab.cpp
+		syusinaev.cpp\
+		ivanovii.cpp \
+		lab.cpp
 
 
 OBJECTS=$(SOURCES:.cpp=.o)
