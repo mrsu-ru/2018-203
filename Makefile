@@ -2,7 +2,8 @@ CC=g++
 CFLAGS=-c -Wall -g
 LDFLAGS= -g
 SOURCES= \
-        main.cpp \
+        main.cpp \ 
+		kuznetsovais.cpp\
 				ivanovii.cpp \
 				lab.cpp
 
