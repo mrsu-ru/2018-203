@@ -5,7 +5,7 @@
  */
 void scherbakovdv::lab1()
 {
-	
+	lab2();
 }
 
 
@@ -15,7 +15,6 @@ void scherbakovdv::lab1()
 void scherbakovdv::lab2()
 {
 	//A[i][i] - матрица, b[i] - столбец свободных членов
-	memcpy(x,b)
 	for (int i = 0; i < N; i++)
 		{
 			if (!A[i][i])
@@ -63,7 +62,18 @@ void scherbakovdv::lab2()
  */
 void scherbakovdv::lab3()
 {
-
+	double *al = new double[N], *bt = new double[N];
+	//Прямой ход
+	al[0] = -A[0][1]/A[0][0];
+	bt[0] = b[0]/A[0][0];
+	for (int i=1;i<N-1;i++){
+		al[i] = -A[i][i+1]/(A[i][i] + A[i][i-1]*al[i-1]);
+		bt[i] = (b[i] - A[i][i-1]*bt[i-1])/(A[i][i] + A[i][i-1]*al[i-1]);
+	}
+	x[N-1] = (b[N-1]-A[N-1][N-2]*bt[N-1])/(A[N-1][N-1]+A[N-1][N-2]*al[N-2]);
+	//Обратный ход
+	for (int i=N-2;i!=-1;i--)
+		x[i] = al[i]*x[i+1]+bt[i];
 }
 
 
