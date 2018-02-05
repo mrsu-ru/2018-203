@@ -1,12 +1,7 @@
 CC=g++
 CFLAGS=-c -Wall -g
 LDFLAGS= -g
-SOURCES= \
-        main.cpp \
-				ivanovii.cpp \
-				lab.cpp
-
-
+SOURCES=main.cpp ivanovii.cpp lab.cpp
 OBJECTS=$(SOURCES:.cpp=.o)
 EXECUTABLE=vvm
 
