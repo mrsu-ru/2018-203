@@ -2,7 +2,7 @@
 #include <cstring>
 #include "lab.h"
 #include <iostream>
-#include "ivanovii.h"
+#include "borisovrs.h"
 
 void print_usage(char* name);
 
