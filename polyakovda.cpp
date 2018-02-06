@@ -80,8 +80,8 @@ void polyakovda::lab2()
  */
 void polyakovda::lab3()
 {
-double e = 0.0001;
-	
+	double eps = 0.001;
+
 	for (int i = 0; i < N; i++) {
 		double maxEl = A[i][i];
 		int indRow = i;
@@ -98,33 +98,36 @@ double e = 0.0001;
 			}
 			swap(b[i], b[indRow]);
 		}
-		
+
 		double summ = 0;
 		for (int j = 0; j < N; j++)
 			summ += abs(A[i][j]);
-		if (2 * abs(A[i][i]) < summ) { cout << "Eroor" << endl; system("pause"); return 0; }
+		if (2 * abs(A[i][i]) < summ) { cout << "Error" << endl; system("pause"); return 0; }
 
 		maxEl = A[i][i];
 		b[i] /= A[i][i];
 		A[i][i] = 0;
 		for (int j = 0; j<N; j++)
-			if (j!=i) A[i][j] /= maxEl;
+			if (j != i) A[i][j] /= maxEl;
 
 	}
-
-	x = b;
+	for (int i = 0; i < N; i++) {
+		x[i] = 0;
+	}
 	double x1 = b[0];
 	double *xr = new double[N];
 	do {
-		for (int ii = 0; ii < N; ii++) {
-			xr[ii] = 0;
+		for (int i = 0; i < N; i++) {
+			xr[i] = 0;
 			for (int k = 0; k < N; k++)
-				xr[ii] += A[ii][k] * x[k];
-			xr[ii] += b[ii];
+				xr[i] -= A[i][k] * x[k];
+			xr[i] += b[i];
 		}
 		x1 = x[0];
-		x = xr;
-	} while (abs(x[0] - x1)>e);
+		for (int i = 0; i < N; i++) {
+			x[i] = xr[i];
+		}
+	} while (abs(x[0] - x1)>eps);
 }
 
 
@@ -134,7 +137,26 @@ double e = 0.0001;
  */
 void polyakovda::lab4()
 {
+	for (int i = 0; i < N; i++) {
+		x[i] = b[i];
+	}
 
+	do {
+		for (int i = 0; i < N; i++) {
+			xResult[i] = b[i];
+			for (int j = 0; j < N; j++) {
+				if (i != j)
+					xResult[i] -= A[i][j] * x[j];
+			}
+			xResult[i] /= A[i][i];
+		}
+		delta = abs(x[0] - xResult[0]);
+		for (int i = 0; i < N; i++) {
+			if (delta < abs(x[i] - xResult[i]))
+				delta = abs(x[i] - xResult[i]);
+			x[i] = xResult[i];
+		}
+	} while (eps < delta);
 }
 
 
