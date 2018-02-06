@@ -166,7 +166,50 @@ void polyakovda::lab4()
  */
 void polyakovda::lab5()
 {
+	double eps = 0.001;
+	double delta, r, rModul;
 
+	double *w = new double[N];
+	double *v = new double[N];
+	double *result = new double[N];
+
+	for (int i = 0; i<N; i++)
+		result[i] = 0;
+
+	do{
+		for (int i = 0; i < N; i++) {
+			w[i] = 0;
+			for (int j = 0; j < N; j++)
+				w[i] += A[i][j] * result[j];
+		}
+
+		for (int i = 0; i < N; i++) {
+			v[i] = w[i] - b[i];
+		}
+
+		for (int i = 0; i < N; i++) {
+			w[i] = 0;
+			for (int j = 0; j < N; j++)
+				w[i] += A[i][j] * v[j];
+		}
+
+		r = 0.0;
+		rModul = 0.0;
+		for (int i = 0; i < N; i++) {
+			r += w[i] * v[i];
+			rModul += w[i] * w[i];
+		}
+
+		r = r / rModul;
+		for (int i = 0; i < N; i++)
+			x[i] = result[i] - r*v[i];
+		delta = abs(x[0] - result[0]);
+		for (int i = 0; i < N; i++) {
+			if (abs(x[i] - result[i])>delta)
+				delta = abs(x[i] - result[i]);
+			result[i] = x[i];
+		}
+	} while (eps < delta);
 }
 
 
