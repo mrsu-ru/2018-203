@@ -2,7 +2,7 @@
 #include <cstring>
 #include "lab.h"
 #include <iostream>
-#include "ivanovii.h"
+#include "salinaa.h"
 
 void print_usage(char* name);
 
@@ -15,8 +15,8 @@ int main(int argc, char** argv)
   }
 
   lab *l = NULL;
-  if (strcmp(argv[1], "ivanovii") == 0) {
-    l = new ivanovii();
+  if (strcmp(argv[1], "salinaa") == 0) {
+    l = new salinaa();
   }
   else  {
     print_usage(argv[0]);

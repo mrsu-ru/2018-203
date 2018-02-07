@@ -3,7 +3,7 @@ CFLAGS=-c -Wall -g
 LDFLAGS= -g
 SOURCES= \
         main.cpp \
-				ivanovii.cpp \
+				salinaa.cpp \
 				lab.cpp
 
 
