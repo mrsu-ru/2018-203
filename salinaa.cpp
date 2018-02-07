@@ -1,9 +1,9 @@
-#include "ivanovii.h"
+#include "salinaa.h"
 
 /**
  * Введение в дисциплину
  */
-void ivanovii::lab1()
+void salinaa::lab1()
 {
 
 }
@@ -12,7 +12,7 @@ void ivanovii::lab1()
 /**
  * Метод Гаусса с выбором главного элемента
  */
-void ivanovii::lab2()
+void salinaa::lab2()
 {
 
 }
@@ -22,7 +22,7 @@ void ivanovii::lab2()
 /**
  * Метод прогонки
  */
-void ivanovii::lab3()
+void salinaa::lab3()
 {
 
 }
@@ -32,7 +32,7 @@ void ivanovii::lab3()
 /**
  * Метод простых итераций
  */
-void ivanovii::lab4()
+void salinaa::lab4()
 {
 
 }
@@ -42,7 +42,7 @@ void ivanovii::lab4()
 /**
  * Метод Якоби или Зейделя
  */
-void ivanovii::lab5()
+void salinaa::lab5()
 {
 
 }
@@ -52,7 +52,7 @@ void ivanovii::lab5()
 /**
  * Метод минимальных невязок
  */
-void ivanovii::lab6()
+void salinaa::lab6()
 {
 
 }
@@ -62,19 +62,19 @@ void ivanovii::lab6()
 /**
  * Метод сопряженных градиентов
  */
-void ivanovii::lab7()
+void salinaa::lab7()
 {
 
 }
 
 
-void ivanovii::lab8()
+void salinaa::lab8()
 {
 
 }
 
 
-std::string ivanovii::get_name()
+std::string salinaa::get_name()
 {
-  return "Ivanov I.I.";
+  return "Salin A.A.";
 }
