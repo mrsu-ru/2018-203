@@ -5,7 +5,7 @@
  */
 void bagapovar::lab1()
 {
-cout<<"Hello world";
+std::cout<<"Hello world";
 }
 
 

@@ -1,10 +1,7 @@
 CC=g++
 CFLAGS=-c -Wall -g
 LDFLAGS= -g
-SOURCES= \
-        main.cpp \
-		bagapovar.cpp \
-		lab.cpp
+SOURCES= main.cpp bagapovar.cpp	lab.cpp
 
 
 OBJECTS=$(SOURCES:.cpp=.o)
