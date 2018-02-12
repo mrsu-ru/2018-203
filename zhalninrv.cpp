@@ -16,6 +16,8 @@ void zhalninrv::lab2()
 {
     for (int k = 0; k < N-1; k++) {
         for (int i = k+1; i < N; i++) {
+		  // choose of main element
+		  // ...
           double c_ki = A[i][k]/A[k][k];
           for (int j = k; j < N; j++) {
             A[i][j] -= A[k][j]*c_ki;
