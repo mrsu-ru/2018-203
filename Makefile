@@ -5,6 +5,7 @@ SOURCES= \
         main.cpp \
 				ivanovii.cpp \
 				zhalninrv.cpp \
+				scherbakovdv.cpp \
 				lab.cpp
 
 
