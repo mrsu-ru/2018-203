@@ -137,6 +137,10 @@ void polyakovda::lab3()
  */
 void polyakovda::lab4()
 {
+	double eps = 0.001;
+	double *xResult = new double[N];
+	double delta;
+	
 	for (int i = 0; i < N; i++) {
 		x[i] = b[i];
 	}
