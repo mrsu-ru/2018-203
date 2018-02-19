@@ -2,12 +2,13 @@ CC=g++
 CFLAGS=-c -Wall -g
 LDFLAGS= -g
 SOURCES= \
-        main.cpp \
-				ivanovii.cpp \
-				zhalninrv.cpp \
-				scherbakovdv.cpp \
-				polyakovda.cpp \
-				lab.cpp
+    main.cpp \
+	ivanovii.cpp \
+	zhalninrv.cpp \
+	scherbakovdv.cpp \
+	polyakovda.cpp \
+	bagapovar.cpp \
+	lab.cpp
 
 
 OBJECTS=$(SOURCES:.cpp=.o)

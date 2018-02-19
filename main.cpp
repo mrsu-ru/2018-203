@@ -6,6 +6,7 @@
 #include "zhalninrv.h"
 #include "scherbakovdv.h"
 #include "polyakovda.h"
+#include "bagapovar.h"
 
 void print_usage(char* name);
 
@@ -23,6 +24,9 @@ int main(int argc, char** argv)
   }
   else if (strcmp(argv[1], "zhalninrv") == 0) {
     l = new zhalninrv();
+  }
+  else if (strcmp(argv[1],"bagapovar")==0) {
+    l = new bagapovar();
   }
   else if (strcmp(argv[1],"scherbakovdv")==0) {
     l = new scherbakovdv();
