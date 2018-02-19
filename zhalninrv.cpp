@@ -93,6 +93,11 @@ void zhalninrv::lab8()
 
 }
 
+void zhalninrv::lab9()
+{
+
+}
+
 
 std::string zhalninrv::get_name()
 {

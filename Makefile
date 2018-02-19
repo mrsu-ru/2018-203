@@ -6,6 +6,7 @@ SOURCES= \
 				ivanovii.cpp \
 				zhalninrv.cpp \
 				scherbakovdv.cpp \
+				polyakovda.cpp \
 				lab.cpp
 
 
