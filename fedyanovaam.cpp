@@ -74,6 +74,12 @@ void fedyanovaam::lab8()
 }
 
 
+void fedyanovaam::lab9()
+{
+
+}
+
+
 std::string fedyanovaam::get_name()
 {
   return "Fedyanova A.M.";

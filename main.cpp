@@ -10,6 +10,7 @@
 #include "tarasovams.h"
 #include "serguninaes.h"
 #include "syusinaev.h"
+#include "fedyanovaam.h"
 
 void print_usage(char* name);
 
@@ -30,6 +31,9 @@ int main(int argc, char** argv)
   }
   else if (strcmp(argv[1],"bagapovar")==0) {
     l = new bagapovar();
+  }
+  else if (strcmp(argv[1],"fedyanovaam")==0) {
+    l = new fedyanovaam();
   }
   else if (strcmp(argv[1],"serguninaes")==0) {
     l = new serguninaes();
