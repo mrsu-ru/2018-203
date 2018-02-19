@@ -8,6 +8,7 @@ SOURCES= \
 	scherbakovdv.cpp \
 	polyakovda.cpp \
 	bagapovar.cpp \
+	tarasovams.cpp \
 	lab.cpp
 
 

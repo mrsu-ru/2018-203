@@ -7,6 +7,7 @@
 #include "scherbakovdv.h"
 #include "polyakovda.h"
 #include "bagapovar.h"
+#include "tarasovams.h"
 
 void print_usage(char* name);
 
