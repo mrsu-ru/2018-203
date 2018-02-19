@@ -8,6 +8,7 @@
 #include "polyakovda.h"
 #include "bagapovar.h"
 #include "tarasovams.h"
+#include "syusinaev.h"
 
 void print_usage(char* name);
 
@@ -28,6 +29,12 @@ int main(int argc, char** argv)
   }
   else if (strcmp(argv[1],"bagapovar")==0) {
     l = new bagapovar();
+  }
+  else if (strcmp(argv[1],"syusinaev")==0) {
+    l = new syusinaev();
+  }
+  else if (strcmp(argv[1],"tarasovams")==0) {
+    l = new tarasovams();
   }
   else if (strcmp(argv[1],"scherbakovdv")==0) {
     l = new scherbakovdv();

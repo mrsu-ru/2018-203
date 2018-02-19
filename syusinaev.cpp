@@ -1,18 +1,18 @@
-#include "tarasovams.h"
+#include "syusinaev.h"
 
 /**
  * Введение в дисциплину
  */
-void tarasovams::lab1()
+void syusinaev::lab1()
 {
-
+std::cout<<"Hello";
 }
 
 
 /**
  * Метод Гаусса с выбором главного элемента
  */
-void tarasovams::lab2()
+void syusinaev::lab2()
 {
 
 }
@@ -22,7 +22,7 @@ void tarasovams::lab2()
 /**
  * Метод прогонки
  */
-void tarasovams::lab3()
+void syusinaev::lab3()
 {
 
 }
@@ -32,7 +32,7 @@ void tarasovams::lab3()
 /**
  * Метод простых итераций
  */
-void tarasovams::lab4()
+void syusinaev::lab4()
 {
 
 }
@@ -42,7 +42,7 @@ void tarasovams::lab4()
 /**
  * Метод Якоби или Зейделя
  */
-void tarasovams::lab5()
+void syusinaev::lab5()
 {
 
 }
@@ -52,7 +52,7 @@ void tarasovams::lab5()
 /**
  * Метод минимальных невязок
  */
-void tarasovams::lab6()
+void syusinaev::lab6()
 {
 
 }
@@ -62,25 +62,25 @@ void tarasovams::lab6()
 /**
  * Метод сопряженных градиентов
  */
-void tarasovams::lab7()
+void syusinaev::lab7()
 {
 
 }
 
 
-void tarasovams::lab8()
+void syusinaev::lab8()
 {
 
 }
 
 
-void tarasovams::lab9()
+void syusinaev::lab9()
 {
 
 }
 
 
-std::string tarasovams::get_name()
+std::string syusinaev::get_name()
 {
-  return "Tarasova M. S.";
+  return "Syusina E.V.";
 }

@@ -9,6 +9,7 @@ SOURCES= \
 	polyakovda.cpp \
 	bagapovar.cpp \
 	tarasovams.cpp \
+	syusinaev.cpp\
 	lab.cpp
 
 
