@@ -9,9 +9,11 @@ std::cout<<"Hello world";
 }
 
 
+
+
+
 void bagapovar::lab1()
 {
-
 double t;
 //Прямой ход
 for (int k = 0; k < N; k++) {
