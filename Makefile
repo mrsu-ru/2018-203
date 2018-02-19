@@ -10,6 +10,7 @@ SOURCES= \
 	bagapovar.cpp \
 	tarasovams.cpp \
 	syusinaev.cpp\
+	serguninaes.cpp \
 	lab.cpp
 
 
