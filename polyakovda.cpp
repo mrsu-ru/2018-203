@@ -102,7 +102,7 @@ void polyakovda::lab3()
 		double summ = 0;
 		for (int j = 0; j < N; j++)
 			summ += abs(A[i][j]);
-		if (2 * abs(A[i][i]) < summ) { cout << "Error" << endl; system("pause"); return 0; }
+		if (2 * abs(A[i][i]) < summ) { cout << "Error" << std::endl; }
 
 		maxEl = A[i][i];
 		b[i] /= A[i][i];
@@ -246,6 +246,12 @@ void polyakovda::lab8()
 /**
  * Нахождение наибольшего по модолю собственного значения матрицы
  */
+}
+
+
+void polyakovda::lab9()
+{
+
 }
 
 
