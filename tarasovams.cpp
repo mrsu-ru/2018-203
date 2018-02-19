@@ -74,6 +74,12 @@ void tarasovams::lab8()
 }
 
 
+void tarasovams::lab9()
+{
+
+}
+
+
 std::string tarasovams::get_name()
 {
   return "Tarasova M. S.";
