@@ -74,6 +74,12 @@ void bagapovar::lab8()
 }
 
 
+void bagapovar::lab9()
+{
+
+}
+
+
 std::string bagapovar::get_name()
 {
   return "Bagapov A.R.";
