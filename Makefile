@@ -12,6 +12,7 @@ SOURCES= \
 	syusinaev.cpp\
 	fedyanovaam.cpp \
 	serguninaes.cpp \
+	borisovrs.cpp \
 	lab.cpp
 
 
