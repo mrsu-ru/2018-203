@@ -2,6 +2,7 @@ CC=g++
 CFLAGS=-c -Wall -g
 LDFLAGS= -g
 SOURCES= \
+<<<<<<< HEAD
     main.cpp \
 	ivanovii.cpp \
 	zhalninrv.cpp \
@@ -14,7 +15,8 @@ SOURCES= \
 	serguninaes.cpp \
 	borisovrs.cpp \
 	lab.cpp
-
+	kuznetsovais.cpp\
+	lab.cpp
 
 OBJECTS=$(SOURCES:.cpp=.o)
 EXECUTABLE=vvm
