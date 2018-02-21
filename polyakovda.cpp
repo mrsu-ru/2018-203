@@ -203,8 +203,8 @@ void polyakovda::lab5()
 			r += w[i] * v[i];
 			rModul += w[i] * w[i];
 		}
-
-		r = r / rModul;
+		if (r==rModul) {r=1;}
+		else {r = r / rModul;}
 		for (int i = 0; i < N; i++)
 			x[i] = result[i] - r*v[i];
 		delta = abs(x[0] - result[0]);
