@@ -1,12 +1,25 @@
 ﻿#include "polyakovda.h"
 
 /**
- * Введение в дисциплину
+ * Решение нелинейных уравнений
  */
 
 void polyakovda::lab1()
 {
-
+	double x0;
+	for(int i=0;i<100;i++){
+	double xd;
+	double eps = 1e-5;
+	x0 = i;
+	int ind = 0;
+	do {
+		ind++;
+		xd = x0;
+		x0 = exp((-x0));
+	} while (abs(xd - x0) > eps || ind>1000);
+	if (x0==x0) break;
+	}
+	cout << x0 << endl;
 }
 /**
  * Метод Гаусса с выбором главного элемента
