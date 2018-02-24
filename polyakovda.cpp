@@ -3,7 +3,15 @@
 /**
  * Введение в дисциплину
  */
+
 void polyakovda::lab1()
+{
+
+}
+/**
+ * Метод Гаусса с выбором главного элемента
+ */
+void polyakovda::lab2()
 {
 	for (int i = 0; i < N; i++){
 		double maxEl = 0;
@@ -52,9 +60,9 @@ void polyakovda::lab1()
 
 
 /**
- * Метод Гаусса с выбором главного элемента
+ * Метод прогонки
  */
-void polyakovda::lab2()
+void polyakovda::lab3()
 {
 	double *apr = new double[N];
 	double *bpr = new double[N];
@@ -74,13 +82,13 @@ void polyakovda::lab2()
 }
 
 
-
 /**
- * Метод прогонки
+ * Метод простых итераций
  */
-void polyakovda::lab3()
+
+void polyakovda::lab4()
 {
-	double eps = 0.001;
+	double eps = 1e-5;
 
 	for (int i = 0; i < N; i++) {
 		double maxEl = A[i][i];
@@ -130,14 +138,14 @@ void polyakovda::lab3()
 	} while (abs(x[0] - x1)>eps);
 }
 
-
-
 /**
- * Метод простых итераций
+ * Метод Якоби или Зейделя
  */
-void polyakovda::lab4()
+
+
+void polyakovda::lab5()
 {
-	double eps = 0.001;
+	double eps = 1e-5;
 	double *xResult = new double[N];
 	double delta;
 	
@@ -164,13 +172,13 @@ void polyakovda::lab4()
 }
 
 
-
 /**
- * Метод Якоби или Зейделя
+ * Метод минимальных невязок
  */
-void polyakovda::lab5()
+
+void polyakovda::lab6()
 {
-	double eps = 0.001;
+	double eps = 1e-5;
 	double delta, r, rModul;
 
 	double *w = new double[N];
@@ -217,42 +225,87 @@ void polyakovda::lab5()
 }
 
 
-
-/**
- * Метод минимальных невязок
- */
-void polyakovda::lab6()
-{
-
-}
-
-
-
 /**
  * Метод сопряженных градиентов
  */
+
 void polyakovda::lab7()
 {
+	double eps = 1e-5;
+	double delta, r, rModul;
+
+
+	double *w = new double[N];
+	double *wp = new double[N];
+	double *v = new double[N];
+	double *result = new double[N];
+
+	for (int i = 0; i<N; i++)
+		result[i] = 0;
+
+	do {
+		for (int i = 0; i < N; i++) {
+			w[i] = 0;
+			for (int j = 0; j < N; j++)
+				w[i] += A[i][j] * result[j];
+		}
+
+		for (int i = 0; i < N; i++) {
+			v[i] = w[i] - b[i];
+		}
+
+		for (int i = 0; i < N; i++) {
+			w[i] = 0;
+			for (int j = 0; j < N; j++)
+				w[i] += A[i][j] * v[j];
+		}
+		for (int i = 0; i < N; i++) {
+			wp[i] = 0;
+			for (int j = 0; j < N; j++) {
+				wp[i] += A[i][j] * w[j];
+			}
+		}
+		r = 0.0;
+		rModul = 0.0;
+		for (int i = 0; i < N; i++) {
+			r += w[i] * v[i];
+			rModul += wp[i] * w[i];
+		}
+		if (r == rModul)r = 1;
+		else r = r / rModul;
+		for (int i = 0; i < N; i++)
+			x[i] = result[i] - r*v[i];
+		delta = abs(x[0] - result[0]);
+		for (int i = 0; i < N; i++) {
+			if (abs(x[i] - result[i])>delta)
+				delta = abs(x[i] - result[i]);
+			result[i] = x[i];
+		}
+	} while (eps < delta);
+}
 
 
 /**
  * Метод вращения для нахождения собственных значений матрицы
  */
-}
-
 
 void polyakovda::lab8()
 {
+
+
+
+}
 /**
  * Нахождение наибольшего по модолю собственного значения матрицы
  */
-}
-
 
 void polyakovda::lab9()
 {
 
 }
+
+
+
 
 
 std::string polyakovda::get_name()
