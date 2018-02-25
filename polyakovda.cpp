@@ -369,7 +369,33 @@ double *sob = new double[N];
 
 void polyakovda::lab9()
 {
+	double * Y = new double[N];
+	double * y = new double[N];
+	double maxSob,sob,sum;
+	double eps = 1e-5;
+	for (int i = 0; i < N; i++)
+		Y[i] = 0;
+	Y[0] = 1;
+	do{
+		sum = 0;
+		for (int i = 0; i < N; i++)
+			sum += Y[i] * Y[i];
+		sob = sqrt(sum);
+		for (int i = 0; i < N; i++)
+		{
+			y[i] = 0;
+			for (int j = 0; j < N; j++)
+				y[i] += A[i][j] * Y[j] / sob;
+		}
+		sum = 0;
+		for (int i = 0; i < N; i++)
+			sum += y[i] * y[i];
+		maxSob = sqrt(sum);
+		for (int i = 0; i<N; i++)
+			Y[i] = y[i];
+	} while (abs(maxSob - sob)>eps);
 
+	cout << maxSob << endl;
 }
 
 
