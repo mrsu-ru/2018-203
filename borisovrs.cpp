@@ -23,36 +23,29 @@ void borisovrs::lab2()
 using namespace std;
 
 double determ(double** a, int n)
-{
-int i, j;
-double det = 0;
-double** matr;
-if (n == 1)
-{
-det = a[0][0];
-}
-else if (n == 2)
-{
-det = a[0][0] * a[1][1] - a[0][1] * a[1][0];
-}
-else
-{
-matr = new double*[n - 1];
-for (i = 0; i<n; ++i)
-{
-for (j = 0; j<n - 1; ++j)
-{
-if (j<i)
-matr[j] = a[j];
-else
-matr[j] = a[j + 1];
-}
-det += pow((double)-1, (i + j));
-matr, n - 1*a[i][n - 1];
-}
-delete[] matr;
-}
-return det;
+ {
+  int i, j;
+  double det = 0;
+  double** matr;
+  if (n == 1)
+    det = a[0][0];
+  else if (n == 2)
+    det = a[0][0] * a[1][1] - a[0][1] * a[1][0];
+  else {
+    matr = new double*[n - 1];
+    for (i = 0; i<n; ++i){
+     for (j = 0; j<n - 1; ++j){
+      if (j<i)
+       matr[j] = a[j];
+      else
+       matr[j] = a[j + 1];
+      }
+   det += pow((double)-1, (i + j));
+   matr, n - 1*a[i][n - 1];
+  }
+  delete[] matr;
+  }
+ return det;
 }
 
 double * gauss(double **a, double *y, int n)
