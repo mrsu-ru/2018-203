@@ -15,6 +15,7 @@ std::cout<<"hello world";
 void borisovrs::lab2()
 {
 
+
 }
 
 
