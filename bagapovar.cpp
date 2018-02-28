@@ -1,18 +1,18 @@
-#include "ivanovii.h"
+#include "bagapovar.h"
 
 /**
  * Введение в дисциплину
  */
-void ivanovii::lab1()
+void bagapovar::lab1()
 {
-std::cout<<"hello world";
+cout<<"Hello world";
 }
 
 
 /**
  * Метод Гаусса с выбором главного элемента
  */
-void ivanovii::lab2()
+void bagapovar::lab2()
 {
 
 }
@@ -22,7 +22,7 @@ void ivanovii::lab2()
 /**
  * Метод прогонки
  */
-void ivanovii::lab3()
+void bagapovar::lab3()
 {
 
 }
@@ -32,7 +32,7 @@ void ivanovii::lab3()
 /**
  * Метод простых итераций
  */
-void ivanovii::lab4()
+void bagapovar::lab4()
 {
 
 }
@@ -42,7 +42,7 @@ void ivanovii::lab4()
 /**
  * Метод Якоби или Зейделя
  */
-void ivanovii::lab5()
+void bagapovar::lab5()
 {
 
 }
@@ -52,7 +52,7 @@ void ivanovii::lab5()
 /**
  * Метод минимальных невязок
  */
-void ivanovii::lab6()
+void bagapovar::lab6()
 {
 
 }
@@ -62,25 +62,25 @@ void ivanovii::lab6()
 /**
  * Метод сопряженных градиентов
  */
-void ivanovii::lab7()
+void bagapovar::lab7()
 {
 
 }
 
 
-void ivanovii::lab8()
+void bagapovar::lab8()
 {
 
 }
 
 
-void ivanovii::lab9()
+void bagapovar::lab9()
 {
 
 }
 
 
-std::string ivanovii::get_name()
+std::string bagapovar::get_name()
 {
-  return "Borisov R.S.";
+  return "Bagapov A.R.";
 }

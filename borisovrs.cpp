@@ -1,18 +1,18 @@
-#include "ivanovii.h"
+#include "borisovrs.h"
 
 /**
  * Введение в дисциплину
  */
-void ivanovii::lab1()
+void borisovrs::lab1()
 {
-std::cout<<"hello world";
+    std::cout<<"hello world";
 }
 
 
 /**
  * Метод Гаусса с выбором главного элемента
  */
-void ivanovii::lab2()
+void borisovrs::lab2()
 {
 
 }
@@ -22,7 +22,7 @@ void ivanovii::lab2()
 /**
  * Метод прогонки
  */
-void ivanovii::lab3()
+void borisovrs::lab3()
 {
 
 }
@@ -32,7 +32,7 @@ void ivanovii::lab3()
 /**
  * Метод простых итераций
  */
-void ivanovii::lab4()
+void borisovrs::lab4()
 {
 
 }
@@ -42,7 +42,7 @@ void ivanovii::lab4()
 /**
  * Метод Якоби или Зейделя
  */
-void ivanovii::lab5()
+void borisovrs::lab5()
 {
 
 }
@@ -52,7 +52,7 @@ void ivanovii::lab5()
 /**
  * Метод минимальных невязок
  */
-void ivanovii::lab6()
+void borisovrs::lab6()
 {
 
 }
@@ -62,25 +62,25 @@ void ivanovii::lab6()
 /**
  * Метод сопряженных градиентов
  */
-void ivanovii::lab7()
+void borisovrs::lab7()
 {
 
 }
 
 
-void ivanovii::lab8()
+void borisovrs::lab8()
 {
 
 }
 
 
-void ivanovii::lab9()
+void borisovrs::lab9()
 {
 
 }
 
 
-std::string ivanovii::get_name()
+std::string borisovrs::get_name()
 {
   return "Borisov R.S.";
 }

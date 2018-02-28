@@ -174,6 +174,8 @@ void scherbakovdv::lab8()
 
 }
 
+void scherbakovdv::lab9() {}
+
 
 std::string scherbakovdv::get_name()
 {
