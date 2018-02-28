@@ -83,7 +83,7 @@ void scherbakovdv::lab3()
  */
 void scherbakovdv::lab4()
 {
-	//Достаточное признак сходимости метода простых итераций - диагональное преобладание
+	//Достаточное признак сходимости метода простых итераций - превышение нормой alpha 1
 	//Средняя разность между новыми и старыми значениями
 	double diff;
 	//Допустимая погрешность
@@ -92,7 +92,8 @@ void scherbakovdv::lab4()
 	double counter=0;
 	//Переходной массив иксов
 	double* xOld = new double[N];
-	memcpy(xOld,b,sizeof(double)*N);
+	for (int i=0;i<N;i++)
+		xOld[i]=0;
 	do {
 		for (int i=0;i<N;i++) {
 			x[i]=b[i];
@@ -101,15 +102,15 @@ void scherbakovdv::lab4()
 					x[i]-=A[i][j]*xOld[j];
 			x[i]/=A[i][i];
 		}
-		diff+=fabs(x[0]-xOld[0]);
-		diff/=N;
+		diff=fabs(x[0]-xOld[0]);
 		counter++;
 		memcpy(xOld,x,sizeof(double)*N);
 	} while ((diff>Eps)&&(counter<100));
-	if (diff>Eps)
-		throw 1;
-	else if (counter==100)
-		throw 2;
+	if (diff>Eps) {
+		perror("diff>Eps");
+	} else if (counter==100) {
+		perror("Out of cycle");
+	}
 }
 
 
@@ -137,15 +138,14 @@ void scherbakovdv::lab5()
 					x[i]-=A[i][j]*xOld[j];
 			x[i]/=A[i][i];
 		}
-		diff+=fabs(x[0]-xOld[0]);
-		diff/=N;
+		diff=fabs(x[0]-xOld[0]);
 		counter++;
 		memcpy(xOld,x,sizeof(double)*N);
 	} while ((diff>Eps)&&(counter<100));
 	if (diff>Eps)
-		throw 1;
+		perror("diff>Eps");
 	else if (counter==100)
-		throw 2;
+		perror("Out of cycle");
 }
 
 
