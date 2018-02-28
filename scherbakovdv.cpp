@@ -83,7 +83,33 @@ void scherbakovdv::lab3()
  */
 void scherbakovdv::lab4()
 {
-	
+	//Достаточное признак сходимости метода простых итераций - диагональное преобладание
+	//Средняя разность между новыми и старыми значениями
+	double diff;
+	//Допустимая погрешность
+	const double Eps=0.1E-10;
+	//Аварийный счётчик
+	double counter=0;
+	//Переходной массив иксов
+	double* xOld = new double[N];
+	memcpy(xOld,b,sizeof(double)*N);
+	do {
+		for (int i=0;i<N;i++) {
+			x[i]=b[i];
+			for (int j=0;j<N;j++)
+				if (i!=j)
+					x[i]-=A[i][j]*xOld[j];
+			x[i]/=A[i][i];
+		}
+		diff+=fabs(x[0]-xOld[0]);
+		diff/=N;
+		counter++;
+		memcpy(xOld,x,sizeof(double)*N);
+	} while ((diff>Eps)&&(counter<100));
+	if (diff>Eps)
+		throw 1;
+	else if (counter==100)
+		throw 2;
 }
 
 
