@@ -13,6 +13,7 @@
 #include "fedyanovaam.h"
 #include "borisovrs.h"
 #include "nefedovms.h"
+#include "kuznetsovais.h"
 
 void print_usage(char* name);
 
@@ -42,6 +43,9 @@ int main(int argc, char** argv)
   }
   else if (strcmp(argv[1],"fedyanovaam")==0) {
     l = new fedyanovaam();
+  }
+  else if (strcmp(argv[1],"kuznetsovais")==0) {
+    l = new kuznetsovais();
   }
   else if (strcmp(argv[1],"serguninaes")==0) {
     l = new serguninaes();

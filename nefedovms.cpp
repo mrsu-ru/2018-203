@@ -3,7 +3,7 @@
 /**
  * Введение в дисциплину
  */
-void ivanovii::lab1()
+void nefedovms::lab1()
 {
 std::cout<<"hello world";
 }
@@ -12,9 +12,8 @@ std::cout<<"hello world";
 /**
  * Метод Гаусса с выбором главного элемента
  */
-void ivanovii::lab2()
+void nefedovms::lab2()
 {
-double Q = 0;
 	double Q = 0;
 
     for (int i = 0; i < N - 1; i++)
@@ -52,7 +51,7 @@ double Q = 0;
 /**
  * Метод прогонки
  */
-void ivanovii::lab3()
+void nefedovms::lab3()
 {
 double Q = 0;
 	int max;
@@ -105,7 +104,7 @@ double Q = 0;
 /**
  * Метод простых итераций
  */
-void ivanovii::lab4()
+void nefedovms::lab4()
 {
 
 }
@@ -115,7 +114,7 @@ void ivanovii::lab4()
 /**
  * Метод Якоби или Зейделя
  */
-void ivanovii::lab5()
+void nefedovms::lab5()
 {
 
 }
@@ -125,7 +124,7 @@ void ivanovii::lab5()
 /**
  * Метод минимальных невязок
  */
-void ivanovii::lab6()
+void nefedovms::lab6()
 {
 
 }
@@ -135,25 +134,25 @@ void ivanovii::lab6()
 /**
  * Метод сопряженных градиентов
  */
-void ivanovii::lab7()
+void nefedovms::lab7()
 {
 
 }
 
 
-void ivanovii::lab8()
+void nefedovms::lab8()
 {
 
 }
 
 
-void ivanovii::lab9()
+void nefedovms::lab9()
 {
 
 }
 
 
-std::string ivanovii::get_name()
+std::string nefedovms::get_name()
 {
   return "Nefedov M.S.";
 }
