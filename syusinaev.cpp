@@ -1,18 +1,18 @@
-#include "ivanovii.h"
+#include "syusinaev.h"
 
 /**
  * Введение в дисциплину
  */
-void ivanovii::lab1()
+void syusinaev::lab1()
 {
-std::cout<<"hello world";
+std::cout<<"Hello";
 }
 
 
 /**
  * Метод Гаусса с выбором главного элемента
  */
-void ivanovii::lab2()
+void syusinaev::lab2()
 {
 
 }
@@ -22,7 +22,7 @@ void ivanovii::lab2()
 /**
  * Метод прогонки
  */
-void ivanovii::lab3()
+void syusinaev::lab3()
 {
 
 }
@@ -32,7 +32,7 @@ void ivanovii::lab3()
 /**
  * Метод простых итераций
  */
-void ivanovii::lab4()
+void syusinaev::lab4()
 {
 
 }
@@ -42,7 +42,7 @@ void ivanovii::lab4()
 /**
  * Метод Якоби или Зейделя
  */
-void ivanovii::lab5()
+void syusinaev::lab5()
 {
 
 }
@@ -52,7 +52,7 @@ void ivanovii::lab5()
 /**
  * Метод минимальных невязок
  */
-void ivanovii::lab6()
+void syusinaev::lab6()
 {
 
 }
@@ -62,25 +62,25 @@ void ivanovii::lab6()
 /**
  * Метод сопряженных градиентов
  */
-void ivanovii::lab7()
+void syusinaev::lab7()
 {
 
 }
 
 
-void ivanovii::lab8()
+void syusinaev::lab8()
 {
 
 }
 
 
-void ivanovii::lab9()
+void syusinaev::lab9()
 {
 
 }
 
 
-std::string ivanovii::get_name()
+std::string syusinaev::get_name()
 {
-  return "Borisov R.S.";
+  return "Syusina E.V.";
 }

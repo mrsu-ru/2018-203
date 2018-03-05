@@ -1,18 +1,18 @@
-#include "ivanovii.h"
+#include "fedyanovaam.h"
 
 /**
  * Введение в дисциплину
  */
-void ivanovii::lab1()
+void fedyanovaam::lab1()
 {
-std::cout<<"hello world";
+
 }
 
 
 /**
  * Метод Гаусса с выбором главного элемента
  */
-void ivanovii::lab2()
+void fedyanovaam::lab2()
 {
 
 }
@@ -22,7 +22,7 @@ void ivanovii::lab2()
 /**
  * Метод прогонки
  */
-void ivanovii::lab3()
+void fedyanovaam::lab3()
 {
 
 }
@@ -32,7 +32,7 @@ void ivanovii::lab3()
 /**
  * Метод простых итераций
  */
-void ivanovii::lab4()
+void fedyanovaam::lab4()
 {
 
 }
@@ -42,7 +42,7 @@ void ivanovii::lab4()
 /**
  * Метод Якоби или Зейделя
  */
-void ivanovii::lab5()
+void fedyanovaam::lab5()
 {
 
 }
@@ -52,7 +52,7 @@ void ivanovii::lab5()
 /**
  * Метод минимальных невязок
  */
-void ivanovii::lab6()
+void fedyanovaam::lab6()
 {
 
 }
@@ -62,25 +62,25 @@ void ivanovii::lab6()
 /**
  * Метод сопряженных градиентов
  */
-void ivanovii::lab7()
+void fedyanovaam::lab7()
 {
 
 }
 
 
-void ivanovii::lab8()
+void fedyanovaam::lab8()
 {
 
 }
 
 
-void ivanovii::lab9()
+void fedyanovaam::lab9()
 {
 
 }
 
 
-std::string ivanovii::get_name()
+std::string fedyanovaam::get_name()
 {
-  return "Borisov R.S.";
+  return "Fedyanova A.M.";
 }

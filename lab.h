@@ -1,8 +1,10 @@
-#pragma once
+﻿#pragma once
 #include <cmath>
 #include <algorithm>
 #include <iostream>
 #include <cstring>
+
+using namespace std;
 
 class lab
 {
@@ -50,4 +52,5 @@ protected:
    */
    virtual void lab7() = 0;
    virtual void lab8() = 0;
+   virtual void lab9() = 0;
 };
