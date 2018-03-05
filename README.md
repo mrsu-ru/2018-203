@@ -3,13 +3,13 @@
 # Введение в выч. методы
 
 // ссылка на удаленный репозиторий 
- git remote add mrsu https://github.com/mrsu-ru/2018-20.git
+ git remote add mrsu https://github.com/mrsu-ru/2018-203.git
 
  // новая ветка (создаем и переключаемся)
  git checkout -b mrsu-master
  
  // затягивает изменения из удаленного репозитория
- git pull mrsu master:mrsu-master
+ git pull mrsu master
  
  // переключаемся на ветку master
  git checkout master
@@ -25,4 +25,3 @@
  
  // лог изменений
  git log --graph --decorate --all
- 
