@@ -9,7 +9,7 @@
  git checkout -b mrsu-master
  
  // затягивает изменения из удаленного репозитория
- git pull mrsu master:mrsu-master
+ git pull mrsu master
  
  // переключаемся на ветку master
  git checkout master
@@ -25,4 +25,3 @@
  
  // лог изменений
  git log --graph --decorate --all
- 
