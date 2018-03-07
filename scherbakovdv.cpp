@@ -1,5 +1,6 @@
 #include "scherbakovdv.h"
 #define MSIZE sizeof(double)*N
+#include <cstdio>
 /**
  * Поиск скалярного произведения
  */
