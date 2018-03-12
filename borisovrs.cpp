@@ -5,7 +5,7 @@
  */
 void borisovrs::lab1()
 {
-std::cout<<"hello world";
+    std::cout<<"hello world";
 }
 
 
@@ -50,6 +50,7 @@ for (int k = N - 1; k > 0; k--){
 
 for(int i=0; i<N; i++)
 	x[i]=b[i];
+
 
 }
 
@@ -105,6 +106,12 @@ void borisovrs::lab7()
 
 
 void borisovrs::lab8()
+{
+
+}
+
+
+void borisovrs::lab9()
 {
 
 }
