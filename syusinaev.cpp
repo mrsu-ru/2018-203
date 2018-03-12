@@ -112,6 +112,12 @@ void syusinaev::lab9()
 }
 */
 
+void syusinaev::lab9()
+{
+
+}
+
+
 std::string syusinaev::get_name()
 {
   return "Syusina E.V.";
