@@ -50,6 +50,7 @@ for (int k = N - 1; k > 0; k--){
 
 for(int i=0; i<N; i++)
 	x[i]=b[i];
+
 }
 
 
