@@ -23,9 +23,9 @@ void syusinaev::lab2()
           if (A[l][i]==0) return 0;
 
           swap(A[l],A[i]);
-          swap(B[l],B[i]);
+          swap(b[l],b[i]);
 
-           B[i]/=A[i][i];
+           b[i]/=A[i][i];
 
           for(  int j=N-1 ;j>i;A[i][j--]/=A[i][i]);
           A[i][i]=1;
@@ -33,18 +33,18 @@ void syusinaev::lab2()
           for(int j=i+1; j<N;j++){
             for(k=N-1;k>i;k--)
                 A[j][k]-=A[i][k]*A[j][i];
-              B[j]-=B[i]*A[j][i];
+              b[j]-=b[i]*A[j][i];
             A[j][i]=0;
           }
        cout<<endl;
 
         }//прямой ход
-       X[N-1]=B[N-1];
+       x[N-1]=b[N-1];
        for ( int i = N - 2; i >= 0; i-- )
          {
-           X[i] = B[i];
+           x[i] = b[i];
            for ( int j = i + 1; j < N; j++ ) {
-              X[i] -= A[i][j] * X[j];
+              x[i] -= A[i][j] * x[j];
               }
                   cout<<endl;
 
