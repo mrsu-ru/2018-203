@@ -15,7 +15,7 @@ void tarasovams::lab1()
 void tarasovams::lab2()
 {
     int i, j, m, c;
-
+    int n = N;
     for(i=0;i<n;i++)
         {
           m=i;
@@ -52,7 +52,7 @@ void tarasovams::lab2()
               }
               }
 
-        return 1;
+        return;
         }
 
 /**
@@ -108,12 +108,6 @@ void tarasovams::lab8()
 {
 
 }
-
-void tarasovams::lab9()
-{
-
-}
-
 
 void tarasovams::lab9()
 {
