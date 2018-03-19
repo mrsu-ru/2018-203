@@ -113,9 +113,41 @@ delete[] up, mid, low;
  */
 void bagapovar::lab4()
 {
+double Eps=1e-15;//порядок ошибки
+double Err;
+double *nx = new double[N];//для хранения промежуточных значений
 
+for (int i=0;i<N;i++)//для первичного приближения возьмём столбец свободных членов
+	x[i]=b[i];
+int step=0;
+	
+do{//в данно
+step++;
+  for(int i=0;i < N;i++)
+  {
+   nx[i]=-b[i];
+ 
+   for(int j=0;j < N;j++)
+   {
+    if(i!=j)
+     nx[i]+=A[i][j]*x[j];
+   }
+ 
+   nx[i]/=-A[i][i];
+  }
+  Err=0;
+for(int i=0; i<N; i++) { 
+if(std::abs(x[i]-nx[i]) > Err)//Максимальная разница между элементами решения 
+Err = std::abs(x[i]-nx[i]);
 }
+for(int i=0; i<N; i++) 
+	x[i]=nx[i];
+std::cout<<step<<"    "<<Err<<endl;
+}while (Err>Eps);
 
+delete[] nx;
+std::cout<<"Blackout";
+}
 
 
 /**
