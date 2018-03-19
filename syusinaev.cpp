@@ -5,7 +5,7 @@
  */
 void syusinaev::lab1()
 {
-std::cout<<"Hello";
+	lab2();
 }
 
 
@@ -14,6 +14,41 @@ std::cout<<"Hello";
  */
 void syusinaev::lab2()
 {
+	   int i, l, k;
+
+ for(i=0;i<N;i++)
+        {
+          for(k=i+1,l=i ;k<N; k++)
+              if (abs(A[k][i])>abs(A[l][i])) l=k;
+          if (A[l][i]==0) return 0;
+
+          swap(A[l],A[i]);
+          swap(B[l],B[i]);
+
+           B[i]/=A[i][i];
+
+          for(  int j=N-1 ;j>i;A[i][j--]/=A[i][i]);
+          A[i][i]=1;
+
+          for(int j=i+1; j<N;j++){
+            for(k=N-1;k>i;k--)
+                A[j][k]-=A[i][k]*A[j][i];
+              B[j]-=B[i]*A[j][i];
+            A[j][i]=0;
+          }
+       cout<<endl;
+
+        }//прямой ход
+       X[N-1]=B[N-1];
+       for ( int i = N - 2; i >= 0; i-- )
+         {
+           X[i] = B[i];
+           for ( int j = i + 1; j < N; j++ ) {
+              X[i] -= A[i][j] * X[j];
+              }
+                  cout<<endl;
+
+         }//обратный ход
 
 }
 
@@ -24,10 +59,8 @@ void syusinaev::lab2()
  */
 void syusinaev::lab3()
 {
-
+	
 }
-
-
 
 /**
  * Метод простых итераций
@@ -72,7 +105,12 @@ void syusinaev::lab8()
 {
 
 }
+/*
+void syusinaev::lab9()
+{
 
+}
+*/
 
 void syusinaev::lab9()
 {
