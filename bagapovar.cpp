@@ -146,7 +146,6 @@ std::cout<<step<<"    "<<Err<<endl;
 }while (Err>Eps);
 
 delete[] nx;
-std::cout<<"Blackout";
 }
 
 
