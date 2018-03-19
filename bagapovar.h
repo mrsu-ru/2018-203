@@ -36,7 +36,6 @@ class bagapovar : public lab
   
   virtual void lab9();
 
-  virtual void lab9();
 
 
   virtual std::string get_name();
