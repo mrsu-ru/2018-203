@@ -1,18 +1,18 @@
-#include "ivanovii.h"
+#include "kuznetsovais.h"
 
 /**
  * Введение в дисциплину
  */
-void ivanovii::lab1()
+void kuznetsovais::lab1()
 {
-std::cout<<"hello world";
+
 }
 
 
 /**
  * Метод Гаусса с выбором главного элемента
  */
-void ivanovii::lab2()
+void kuznetsovais::lab2()
 {
 
 }
@@ -22,7 +22,7 @@ void ivanovii::lab2()
 /**
  * Метод прогонки
  */
-void ivanovii::lab3()
+void kuznetsovais::lab3()
 {
 
 }
@@ -32,7 +32,7 @@ void ivanovii::lab3()
 /**
  * Метод простых итераций
  */
-void ivanovii::lab4()
+void kuznetsovais::lab4()
 {
 
 }
@@ -42,7 +42,7 @@ void ivanovii::lab4()
 /**
  * Метод Якоби или Зейделя
  */
-void ivanovii::lab5()
+void kuznetsovais::lab5()
 {
 
 }
@@ -52,7 +52,7 @@ void ivanovii::lab5()
 /**
  * Метод минимальных невязок
  */
-void ivanovii::lab6()
+void kuznetsovais::lab6()
 {
 
 }
@@ -62,25 +62,24 @@ void ivanovii::lab6()
 /**
  * Метод сопряженных градиентов
  */
-void ivanovii::lab7()
+void kuznetsovais::lab7()
 {
 
 }
 
 
-void ivanovii::lab8()
+void kuznetsovais::lab8()
+{
+
+}
+
+void kuznetsovais::lab9()
 {
 
 }
 
 
-void ivanovii::lab9()
+std::string kuznetsovais::get_name()
 {
-
-}
-
-
-std::string ivanovii::get_name()
-{
-  return "Borisov R.S.";
+  return "Kuznetsova I.S.";
 }
