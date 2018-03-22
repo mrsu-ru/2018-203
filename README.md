@@ -2,5 +2,26 @@
 
 # Введение в выч. методы
 
-| № п/п | ФИО | Лаб.1 | Лаб. 2 | Лаб. 3 | Лаб. 4 | Лаб. 5 | Лаб. 6 | Лаб. 7 | Лаб. 8 | | Лаб. 9 | | Лаб. 10 |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+// ссылка на удаленный репозиторий 
+ git remote add mrsu https://github.com/mrsu-ru/2018-203.git
+
+ // новая ветка (создаем и переключаемся)
+ git checkout -b mrsu-master
+ 
+ // затягивает изменения из удаленного репозитория
+ git pull mrsu master
+ 
+ // переключаемся на ветку master
+ git checkout master
+ 
+ // сливаем ветку mrsu-master в ветку master
+ git merge --no-ff mrsu-master
+ 
+ // проталкиваем изменения в удаленный репозиторий origin
+ git push origin master
+ 
+ // удаляем ветку mrsu-master
+ git branch -d mrsu-master
+ 
+ // лог изменений
+ git log --graph --decorate --all
