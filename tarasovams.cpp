@@ -52,6 +52,7 @@ void tarasovams::lab2()
               }
               }
 
+
         return 1;
         }
 
@@ -60,8 +61,26 @@ void tarasovams::lab2()
  */
 void tarasovams::lab3()
 {
+double* Alpha = new double[N];
+double* Betta = new double[N];
 
+    Alpha[0] = A[0][1]/(-A[0][0]);
+    Betta[0] = b[0]/A[0][0];
+
+    for(int i=1; i<N; i++)
+    {
+        Alpha[i] = -A[i][i+1]/(A[i][i-1]*Alpha[i-1]-A[i][i]);
+        Betta[i] = (-b[i] + A[i][i-1]*Betta[i-1])/(-A[i][i-1]*Alpha[i-1]-A[i][i]);
+    }
+
+    for(int i=N-1; i>=0; i--)
+
+    x[i] = Alpha[i]*x[i+1]+Betta[i];
+    delete[] Alpha;
+    delete[] Betta;
 }
+
+
 
 
 
@@ -108,12 +127,6 @@ void tarasovams::lab8()
 {
 
 }
-
-void tarasovams::lab9()
-{
-
-}
-
 
 void tarasovams::lab9()
 {
