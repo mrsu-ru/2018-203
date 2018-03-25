@@ -7,6 +7,7 @@ SOURCES= \
 	zhalninrv.cpp \
 	scherbakovdv.cpp \
 	polyakovda.cpp \
+	grishaevaoov.cpp \
 	bagapovar.cpp \
 	tarasovams.cpp \
 	syusinaev.cpp\
