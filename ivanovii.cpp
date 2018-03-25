@@ -1,9 +1,9 @@
-#include "ivanovdd.h"
+#include "ivanovii.h"
 
 /**
  * Введение в дисциплину
  */
-void ivanovdd::lab1()
+void ivanovii::lab1()
 {
 
 }
@@ -12,7 +12,7 @@ void ivanovdd::lab1()
 /**
  * Метод Гаусса с выбором главного элемента
  */
-void ivanovdd::lab2()
+void ivanovii::lab2()
 {
 
 }
@@ -22,7 +22,7 @@ void ivanovdd::lab2()
 /**
  * Метод прогонки
  */
-void ivanovdd::lab3()
+void ivanovii::lab3()
 {
 
 }
@@ -32,7 +32,7 @@ void ivanovdd::lab3()
 /**
  * Метод простых итераций
  */
-void ivanovdd::lab4()
+void ivanovii::lab4()
 {
 
 }
@@ -42,7 +42,7 @@ void ivanovdd::lab4()
 /**
  * Метод Якоби или Зейделя
  */
-void ivanovdd::lab5()
+void ivanovii::lab5()
 {
 
 }
@@ -52,7 +52,7 @@ void ivanovdd::lab5()
 /**
  * Метод минимальных невязок
  */
-void ivanovdd::lab6()
+void ivanovii::lab6()
 {
 
 }
@@ -62,19 +62,19 @@ void ivanovdd::lab6()
 /**
  * Метод сопряженных градиентов
  */
-void ivanovdd::lab7()
+void ivanovii::lab7()
 {
 
 }
 
 
-void ivanovdd::lab8()
+void ivanovii::lab8()
 {
 
 }
 
 
-std::string ivanovdd::get_name()
+std::string ivanovii::get_name()
 {
-  return "Ivanov D.D.";
+  return "Ivanov I.I.";
 }
