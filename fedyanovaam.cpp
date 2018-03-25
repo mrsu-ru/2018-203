@@ -20,7 +20,7 @@ void fedyanovaam::lab2(){
           maxn = k;
           for (int i=k+1; i<N; i++)
         if(abs(A[i][k]) > abs(A[maxn][k])) maxn = i; ///Выбор главного элемента
-          std::swap(A[maxn], A[k]); ///Меняем строки местами
+          std::swap(A[maxn], A[k]);///Меняем строки местами
           std::swap(b[maxn], b[k]);
 
           for (int i=k+1; i<N; i++){
