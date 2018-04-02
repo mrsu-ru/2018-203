@@ -15,6 +15,7 @@
 #include "nefedovms.h"
 #include "kuznetsovais.h"
 #include "bulychevaoa.h"
+#include "salinaa.h"
 
 void print_usage(char* name);
 
@@ -27,8 +28,8 @@ int main(int argc, char** argv)
   }
 
   lab *l = NULL;
-  if (strcmp(argv[1], "ivanovii") == 0) {
-    l = new ivanovii();
+  if (strcmp(argv[1], "salinaa") == 0) {
+    l = new salinaa();
   }
   else if (strcmp(argv[1], "zhalninrv") == 0) {
     l = new zhalninrv();
