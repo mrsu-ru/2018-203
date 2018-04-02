@@ -153,9 +153,43 @@ delete[] nx;
  * Метод Якоби или Зейделя
  */
 void bagapovar::lab5()
-{
+{ 
+//Метод Якоби
+double *oldx = new double[N]; 
 
-}
+for (int i=0; i<N; i++) { 
+x[i]=0; // первоначальное новое решение 
+} 
+
+double Err=0.0; 
+double eps=1e-20; 
+int k=0; 
+
+do { 
+k++; 
+Err=0.0; 
+for(int i=0; i<N; i++) 
+oldx[i]=x[i]; // здесь записывается предыдущее решение 
+for(int i=0; i<N; i++) 
+{ 
+double s=0; //вычисляем s, но мы не берём диагональные элементы 
+for(int j=0; j<i; j++) 
+s += A[i][j] * oldx[j]; 
+for(int j=i+1; j<N; j++) 
+s += A[i][j] * oldx[j]; 
+x[i]=(b[i] - s)/A[i][i]; // вычисляется новое решение 
+} 
+Err= std::abs(oldx[0]-x[0]); 
+for(int i=0; i<N; i++) 
+{ 
+if(std::abs(oldx[i]-x[i]) > Err) 
+Err = std::abs(oldx[i]-x[i]);//максимальная разница между предыдущим решением и текущим. 
+} 
+} while(Err >= eps); 
+std::cout<<"Чиcло итераций: "<<k<<endl; 
+
+delete [] oldx; 
+} 
 
 
 
