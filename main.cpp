@@ -16,6 +16,7 @@
 #include "kuznetsovais.h"
 #include "bulychevaoa.h"
 #include "salinaa.h"
+#include "mescheryakovam.h"
 
 void print_usage(char* name);
 
@@ -66,6 +67,9 @@ int main(int argc, char** argv)
   }
   else  if (strcmp(argv[1], "bulychevaoa") == 0) {
     l = new bulychevaoa();
+  }
+  else  if (strcmp(argv[1], "mescheryakovam") == 0) {
+    l = new mescheryakovam();
   }
   else  {
     print_usage(argv[0]);
