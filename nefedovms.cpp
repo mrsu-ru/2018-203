@@ -47,56 +47,32 @@ void nefedovms::lab2()
 }
 
 
-
 /**
  * Метод прогонки
  */
 void nefedovms::lab3()
 {
-double Q = 0;
-	int max;
 
-    for (int i = 0; i < N - 1; i++)
+    double* new_A = new double[N];
+    double* new_b = new double[N];
+
+    new_A[0] = A[0][1] / (-A[0][0]);
+    new_b[0] = b[0] / A[0][0];
+
+    for(int i = 1; i < N; i++)
     {
-				max = i;
-
-		for (int j = i + 1; j < N; j++)
-		{
-			if(abs(A[j][i]) > abs(A[max][i]))
-			{
-				max = j;
-			}
-		}
-
-
-				std::swap(A[max], A[i]);
-		    std::swap(b[max], b[i]);
-
-        for (int j = i + 1; j < N; j++)
-        {
-            Q = A[j][i] / A[i][i];
-            for (int k = i; k < N; k++)
-            {
-                A[j][k] -= Q * A[i][k];
-            }
-            b[j] -= Q * b[i];
-        }
+        new_A[i] = A[i][i+1] / (-A[i][i-1] * new_A[i-1] - A[i][i]);
+        new_b[i] = (-b[i] + A[i][i-1] * new_b[i-1]) / ( -A[i][i-1] * new_A[i-1] - A[i][i]);
     }
 
-    for(int i = 0; i < N; i++)
-	{
-        x[i] = b[i];
-	}
-
-    for (int i = N - 1; i >= 0; i--)
+    for(int i = N - 1; i >= 0; i--)
     {
-        for (int j = i + 1; j < N; j++)
-		{
-			x[i] -= A[i][j] * x[j];
-		}
+        x[i] = new_A[i] * x[i+1] + new_b[i];
+    }
 
-        x[i] /= A[i][i];
-	}
+    delete[] new_A;
+    delete[] new_b;
+
 }
 
 
@@ -112,12 +88,46 @@ void nefedovms::lab4()
 
 
 /**
- * Метод Якоби или Зейделя
+ * Метод Якоби
  */
 void nefedovms::lab5()
 {
-
+double eps = 1.e-10;
+double nx[N];
+double razn = 0;
+int flag=1;
+	for(int i = 0; i < N; i++)
+	{
+		x[i] = 0;
+	}
+	do
+	{
+		for(int i = 0; i < N; i++)
+		{
+			nx[i] = b[i];
+			for(int j = 0; j < N; j++)
+			{
+				if(i != j)
+				{
+					nx[i] = nx[i] - A[i][j] * x[j];
+				}
+			}
+			nx[i] = nx[i]/(A[i][i]);
+		}
+		razn = fabs( nx[0] - x[0] );
+		for(int i = 0; i < N; i++)
+		{
+			if(fabs(nx[i] - x[i]) > razn)
+			{
+				razn = fabs(nx[i] - x[i]);
+			}
+			x[i] = nx[i];
+		}
+		if(razn < eps)
+            flag=0;
+	} while(flag==1);
 }
+
 
 
 
