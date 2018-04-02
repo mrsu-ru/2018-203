@@ -1,8 +1,11 @@
 #pragma once
 #include "lab.h"
 
-class kuznetsovais : public lab
+class scherbakovdv : public lab
 {
+  virtual double scala(double* l, double* r);
+  virtual double* mul(double** mat, double* vec);
+  virtual double** mul(double** mat1, double** mat2);
   /**
    * Метод Гаусса
    */
@@ -31,9 +34,13 @@ class kuznetsovais : public lab
    * Один из градиентных методов
    */
   virtual void lab7();
-
+  /**
+   * Метод вращения для нахождения собственных значений матрицы
+   */
   virtual void lab8();
-
+  /**
+   * Нахождение наибольшего по модолю собственного значения матрицы
+   */
   virtual void lab9();
 
 

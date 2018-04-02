@@ -127,6 +127,11 @@ void kuznetsovais::lab8()
 
 }
 
+void kuznetsovais::lab9()
+{
+
+}
+
 
 std::string kuznetsovais::get_name()
 {
