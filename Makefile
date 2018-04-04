@@ -15,6 +15,7 @@ SOURCES= \
 	borisovrs.cpp \
 	kuznetsovais.cpp\
 	nefedovms.cpp \
+	grishaevaoov.cpp \
 	bulychevaoa.cpp \
 	salinaa.cpp \
 	mescheryakovam.cpp \

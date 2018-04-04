@@ -1,4 +1,4 @@
-#include "grishaevaov.h"
+#include "grishaevaoov.h"
 
 /**
  * Введение в дисциплину
@@ -130,6 +130,11 @@ void grishaevaov::lab7()
 
 
 void grishaevaov::lab8()
+{
+
+}
+
+void grishaevaov::lab9()
 {
 
 }
