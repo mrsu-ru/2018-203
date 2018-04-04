@@ -3,16 +3,16 @@
 /**
  * Введение в дисциплину
  */
-void grishaevaoov::lab1()
+void grishaevaov::lab1()
 {
-std::cout<<"Hello, world!";
+std::cout<<"Hello, world!!!";
 }
 
 
 /**
  * Метод Гаусса с выбором главного элемента
  */
-void grishaevaoov::lab2()
+void grishaevaov::lab2()
 {
 double maxi;
   int k, ii;
@@ -66,7 +66,7 @@ double maxi;
 /**
  * Метод прогонки
  */
-void grishaevaoov::lab3()
+void grishaevaov::lab3()
 {
 int n=N-1;
   double AA[N];
@@ -93,7 +93,7 @@ for(int i=N-1;i>=0;i--)
 /**
  * Метод простых итераций
  */
-void grishaevaoov::lab4()
+void grishaevaov::lab4()
 {
 
 }
@@ -103,7 +103,7 @@ void grishaevaoov::lab4()
 /**
  * Метод Якоби или Зейделя
  */
-void grishaevaoov::lab5()
+void grishaevaov::lab5()
 {
 
 }
@@ -113,7 +113,7 @@ void grishaevaoov::lab5()
 /**
  * Метод минимальных невязок
  */
-void grishaevaoov::lab6()
+void grishaevaov::lab6()
 {
 
 }
@@ -123,19 +123,24 @@ void grishaevaoov::lab6()
 /**
  * Метод сопряженных градиентов
  */
-void grishaevaoov::lab7()
+void grishaevaov::lab7()
 {
 
 }
 
 
-void grishaevaoov::lab8()
+void grishaevaov::lab8()
+{
+
+}
+
+void grishaevaov::lab9()
 {
 
 }
 
 
-std::string grishaevaoov::get_name()
+std::string grishaevaov::get_name()
 {
   return "Grishaeva O.V.";
 }
