@@ -7,6 +7,7 @@ SOURCES= \
 	zhalninrv.cpp \
 	scherbakovdv.cpp \
 	polyakovda.cpp \
+	grishaevaoov.cpp \
 	bagapovar.cpp \
 	tarasovams.cpp \
 	syusinaev.cpp\
@@ -15,6 +16,7 @@ SOURCES= \
 	borisovrs.cpp \
 	kuznetsovais.cpp\
 	nefedovms.cpp \
+	grishaevaoov.cpp \
 	bulychevaoa.cpp \
 	salinaa.cpp \
 	mescheryakovam.cpp \
