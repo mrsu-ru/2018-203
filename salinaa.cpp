@@ -117,7 +117,31 @@ void salinaa::lab4()
  */
 void salinaa::lab5()
 {
+double eps = 1e-5;
+	double* x = new double[N];
+	double* results = new double[N];
+	double norm;
 
+	for (int i = 0; i < N; i++) {
+		results[i] = b[i];
+	}
+	do {
+		for (int i = 0; i < N; i++) {
+			x[i] = b[i];
+			for (int j = 0; j < N; j++) {
+				if (i != j)
+					x[i] -= A[i][j] * results[j];
+			}
+			x[i] /= A[i][i];
+		}
+        norm = fabs(results[0] - x[0]);
+		for (int i = 0; i < N; i++) {
+			if (fabs(results[i] - x[i]) > norm)
+				norm = fabs(results[i] - x[i]);
+			results[i] = x[i];
+		}
+	} while (norm > eps);
+	delete[] x;
 }
 
 
