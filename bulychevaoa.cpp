@@ -215,6 +215,8 @@ double eps = 1e-9;
 			x[i] = xr[i];
 		}
 	} while (abs(x[0] - x1)>eps);
+	
+	//while ((abs(x[0] - x1)/abs(x[0])>eps); - для Зейделя
 }
 
 
