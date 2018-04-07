@@ -1,5 +1,5 @@
 ﻿#include "bulychevaoa.h"
-
+#include <stdio.h>
 /**
  * Введение в дисциплину
  */
@@ -94,9 +94,9 @@ double *apr = new double[N];
 void bulychevaoa::lab4()
 {
 double eps = 1e-9;
-double tauh = 1e-9;	
+double tauh = 1e-5;	
 
-	for (int i = 0; i < N; i++) {
+	/*for (int i = 0; i < N; i++) {
 		double maxEl = A[i][i];
 		int indRow = i;
 		for (int j = i + 1; j < N; j++)
@@ -126,26 +126,33 @@ double tauh = 1e-9;
 
 	}
 	
-	
+	*/
 	for (int i = 0; i < N; i++) {
 		x[i] = 0;
 	}
-	double x1 = b[0];
+	double x1;
 	double *xr = new double[N];
+	int step = 0;
 	
 	do {
+		step++;
 		for (int i = 0; i < N; i++) {
-			xr[i] = 0;
+			xr[i] = x[i];
 			for (int k = 0; k < N; k++)
 				xr[i] -= tauh*A[i][k] * x[k];
-			xr[i] += b[i];
+			xr[i] += tauh * b[i];
+			
 		}
-		x1 = x[0];
+		x1 = 0.;
+		for (int i = 0; i < N; i++) {
+			x1 += (xr[i]-x[i])*(xr[i]-x[i]);
+		}
 		
 		for (int i = 0; i < N; i++) {
 			x[i] = xr[i];
 		}
-	} while (abs(x[0] - x1)>eps);
+		printf("err = %f, step = %d\n", x1, step);
+	} while (sqrt(x1)>eps);
 }
 
 
