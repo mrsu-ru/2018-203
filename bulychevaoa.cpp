@@ -93,7 +93,58 @@ double *apr = new double[N];
  */
 void bulychevaoa::lab4()
 {
+double eps = 1e-5;
 
+	for (int i = 0; i < N; i++) {
+		double maxEl = A[i][i];
+		int indRow = i;
+		for (int j = i + 1; j < N; j++)
+			if (maxEl < abs(A[j][i])) {
+				indRow = j;
+				maxEl = abs(A[j][i]);
+			}
+
+
+		if (indRow != i) {
+			for (int j = i; j < N; j++) {
+				swap(A[i][j], A[indRow][j]);
+			}
+			swap(b[i], b[indRow]);
+		}
+
+		double summ = 0;
+		for (int j = 0; j < N; j++)
+			summ += abs(A[i][j]);
+		if (2 * abs(A[i][i]) < summ) { cout << "Error" << std::endl; }
+
+		maxEl = A[i][i];
+		b[i] /= A[i][i];
+		A[i][i] = 0;
+		for (int j = 0; j<N; j++)
+			if (j != i) A[i][j] /= maxEl;
+
+	}
+	
+	
+	for (int i = 0; i < N; i++) {
+		x[i] = 0;
+	}
+	double x1 = b[0];
+	double *xr = new double[N];
+	
+	do {
+		for (int i = 0; i < N; i++) {
+			xr[i] = 0;
+			for (int k = 0; k < N; k++)
+				xr[i] -= A[i][k] * x[k];
+			xr[i] += b[i];
+		}
+		x1 = x[0];
+		
+		for (int i = 0; i < N; i++) {
+			x[i] = xr[i];
+		}
+	} while (abs(x[0] - x1)>eps);
 }
 
 
