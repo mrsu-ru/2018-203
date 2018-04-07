@@ -93,7 +93,8 @@ double *apr = new double[N];
  */
 void bulychevaoa::lab4()
 {
-double eps = 1e-5;
+double eps = 1e-9;
+double tauh = 1e-9;	
 
 	for (int i = 0; i < N; i++) {
 		double maxEl = A[i][i];
@@ -136,7 +137,7 @@ double eps = 1e-5;
 		for (int i = 0; i < N; i++) {
 			xr[i] = 0;
 			for (int k = 0; k < N; k++)
-				xr[i] -= A[i][k] * x[k];
+				xr[i] -= tauh*A[i][k] * x[k];
 			xr[i] += b[i];
 		}
 		x1 = x[0];
