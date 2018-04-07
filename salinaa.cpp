@@ -112,8 +112,8 @@ void salinaa::lab4()
  */
 void salinaa::lab5()
 {
-double eps = 1e-5;
-	double* x = new double[N];
+double eps = 1e-8;
+	
 	double* results = new double[N];
 	double norm;
 
@@ -136,7 +136,7 @@ double eps = 1e-5;
 			results[i] = x[i];
 		}
 	} while (norm > eps);
-	delete[] x;
+	delete[] results;
 }
 
 
