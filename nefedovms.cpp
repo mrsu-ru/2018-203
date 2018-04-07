@@ -6,7 +6,9 @@
 void nefedovms::lab1()
 {
 std::cout<<"hello world";
+std::cout<<"hello world";
 }
+
 
 
 /**
