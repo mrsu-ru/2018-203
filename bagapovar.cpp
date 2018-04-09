@@ -121,7 +121,7 @@ for (int i=0;i<N;i++)//для первичного приближения воз
 	x[i]=b[i];
 int step=0;
 	
-do{//в данно
+do{
 step++;
   for(int i=0;i < N;i++)
   {
@@ -186,8 +186,6 @@ if(std::abs(oldx[i]-x[i]) > Err)
 Err = std::abs(oldx[i]-x[i]);//максимальная разница между предыдущим решением и текущим. 
 } 
 } while(Err >= eps); 
-std::cout<<"Чиcло итераций: "<<k<<endl; 
-
 delete [] oldx; 
 } 
 
