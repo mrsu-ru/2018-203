@@ -5,7 +5,7 @@
  */
 void syusinaev::lab1()
 {
-	lab2();
+	cout<<"It's working!!!";
 }
 
 
@@ -20,7 +20,6 @@ void syusinaev::lab2()
         {
           for(k=i+1,l=i ;k<N; k++)
               if (abs(A[k][i])>abs(A[l][i])) l=k;
-          if (A[l][i]==0) return;
 
           swap(A[l],A[i]);
           swap(b[l],b[i]);
@@ -59,7 +58,22 @@ void syusinaev::lab2()
  */
 void syusinaev::lab3()
 {
-	
+double y;
+double* Al= new double[N];
+double* Be= new double[N];
+ y = A[0][0];
+  Al[0] = -A[0][1] / y;
+  Be[0] = b[0] / y  ;
+  for (int i = 1; i < N; i++) {
+    y = A[i][i] + A[i][i - 1] * Al[i - 1];
+    Al[i] = -A[i][i + 1] / y;
+    Be[i] = (b[i] - A[i][i - 1] * Be[i - 1]) / y;
+  }
+  x[N-1] = (b[N-1] - A[N-1][N - 2] * Be[N - 2]) / (A[N-1][N-1] + A[N-1][N - 2] * Al[N - 1]);
+  for (int i = N - 2; i >= 0; i--) {
+    x[i] = Al[i] * x[i + 1] + Be[i];
+  }
+
 }
 
 /**
