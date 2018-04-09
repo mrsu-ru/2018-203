@@ -88,6 +88,21 @@ for(int i=N-1;i>=0;i--)
  */
 void kuznetsovais::lab4()
 {
+    double eps=0.001;
+    double summ;
+do
+{
+for(int i=0; i<n; i++)
+{
+summ = 0;
+for(int j=0; j<n; j++)
+if(i!=j)
+summ += A[i][j] * X[k][j];
+X[k+1][i] = (1/A[i][i]) * (B[i] - summ);
+L=fabs(X[k][i]-X[k-1][i]);
+}
+k++;
+}while(L>eps);
 
 }
 
@@ -98,7 +113,39 @@ void kuznetsovais::lab4()
  */
 void kuznetsovais::lab5()
 {
+double eps =0.001;
 
+		double* Y = new double[N];
+		double norma = 0;
+
+		for(int i=0; i<N; i++){
+			x[i] = 0;}
+        do
+		{
+			for(int i=0; i<N; i++)
+			{
+				Y[i] = b[i];
+				for(int j=0; j<N; j++)
+				{
+					if(i != j)
+					{
+						Y[i] -= A[i][j]*x[j];
+					}
+				}
+				Y[i] /= A[i][i];
+			}
+
+		norma = abs(x[0] - Y[0]);
+
+			for(int i=0; i<N; i++)
+			{
+				if(abs(x[i]-Y[i]) > norma)
+					norma = sqrt((x[i]-Y[i])*(x[i]-Y[i]));
+				x[i] = Y[i];
+			}
+		} while (norma >= eps);
+		delete[] Y;
+	}
 }
 
 
