@@ -1,7 +1,7 @@
 #include "tarasovams.h"
 
 /**
- * Р’РІРµРґРµРЅРёРµ РІ РґРёСЃС†РёРїР»РёРЅСѓ
+ * Введение в дисциплину
  */
 void tarasovams::lab1()
 {
@@ -10,7 +10,7 @@ void tarasovams::lab1()
 
 
 /**
- * РњРµС‚РѕРґ Р“Р°СѓСЃСЃР° СЃ РІС‹Р±РѕСЂРѕРј РіР»Р°РІРЅРѕРіРѕ СЌР»РµРјРµРЅС‚Р°
+ * Метод Гаусса с выбором главного элемента
  */
 void tarasovams::lab2()
 {
@@ -52,21 +52,38 @@ void tarasovams::lab2()
               }
               }
 
-        return;
         }
 
 /**
- * РњРµС‚РѕРґ РїСЂРѕРіРѕРЅРєРё
+ * Метод прогонки
  */
 void tarasovams::lab3()
 {
+double* Alpha = new double[N];
+double* Betta = new double[N];
 
+    Alpha[0] = -A[0][1]/A[0][0];
+    Betta[0] = b[0]/A[0][0];
+
+    for(int i=1; i<N; i++)
+    {
+        Alpha[i] = -A[i][i+1]/(A[i][i-1]*Alpha[i-1]-A[i][i]);
+        Betta[i] = (-b[i] + A[i][i-1]*Betta[i-1])/(-A[i][i-1]*Alpha[i-1]-A[i][i]);
+    }
+
+    for(int i=N-1; i>=0; i--)
+
+    x[i] = Alpha[i]*x[i+1]+Betta[i];
+    delete[] Alpha;
+    delete[] Betta;
 }
 
 
 
+
+
 /**
- * РњРµС‚РѕРґ РїСЂРѕСЃС‚С‹С… РёС‚РµСЂР°С†РёР№
+ * Метод простых итераций
  */
 void tarasovams::lab4()
 {
@@ -76,7 +93,7 @@ void tarasovams::lab4()
 
 
 /**
- * РњРµС‚РѕРґ РЇРєРѕР±Рё РёР»Рё Р—РµР№РґРµР»СЏ
+ * Метод Якоби или Зейделя
  */
 void tarasovams::lab5()
 {
@@ -86,7 +103,7 @@ void tarasovams::lab5()
 
 
 /**
- * РњРµС‚РѕРґ РјРёРЅРёРјР°Р»СЊРЅС‹С… РЅРµРІСЏР·РѕРє
+ * Метод минимальных невязок
  */
 void tarasovams::lab6()
 {
@@ -96,7 +113,7 @@ void tarasovams::lab6()
 
 
 /**
- * РњРµС‚РѕРґ СЃРѕРїСЂСЏР¶РµРЅРЅС‹С… РіСЂР°РґРёРµРЅС‚РѕРІ
+ * Метод сопряженных градиентов
  */
 void tarasovams::lab7()
 {
