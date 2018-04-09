@@ -14,7 +14,10 @@
 #include "borisovrs.h"
 #include "nefedovms.h"
 #include "kuznetsovais.h"
+#include "grishaevaoov.h"
 #include "bulychevaoa.h"
+#include "salinaa.h"
+#include "mescheryakovam.h"
 
 void print_usage(char* name);
 
@@ -27,8 +30,8 @@ int main(int argc, char** argv)
   }
 
   lab *l = NULL;
-  if (strcmp(argv[1], "ivanovii") == 0) {
-    l = new ivanovii();
+  if (strcmp(argv[1], "salinaa") == 0) {
+    l = new salinaa();
   }
   else if (strcmp(argv[1], "zhalninrv") == 0) {
     l = new zhalninrv();
@@ -63,8 +66,14 @@ int main(int argc, char** argv)
   else  if (strcmp(argv[1], "polyakovda") == 0) {
     l = new polyakovda();
   }
+  else  if (strcmp(argv[1], "grishaevaov") == 0) {
+    l = new grishaevaov();
+  }
   else  if (strcmp(argv[1], "bulychevaoa") == 0) {
     l = new bulychevaoa();
+  }
+  else  if (strcmp(argv[1], "mescheryakovam") == 0) {
+    l = new mescheryakovam();
   }
   else  {
     print_usage(argv[0]);

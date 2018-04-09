@@ -7,6 +7,7 @@ SOURCES= \
 	zhalninrv.cpp \
 	scherbakovdv.cpp \
 	polyakovda.cpp \
+	grishaevaoov.cpp \
 	bagapovar.cpp \
 	tarasovams.cpp \
 	syusinaev.cpp\
@@ -16,6 +17,8 @@ SOURCES= \
 	kuznetsovais.cpp\
 	nefedovms.cpp \
 	bulychevaoa.cpp \
+	salinaa.cpp \
+	mescheryakovam.cpp \
 	lab.cpp
 
 OBJECTS=$(SOURCES:.cpp=.o)
