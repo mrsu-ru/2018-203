@@ -14,6 +14,7 @@
 #include "borisovrs.h"
 #include "nefedovms.h"
 #include "kuznetsovais.h"
+#include "bulychevaoa.h"
 
 void print_usage(char* name);
 
@@ -61,6 +62,9 @@ int main(int argc, char** argv)
   }
   else  if (strcmp(argv[1], "polyakovda") == 0) {
     l = new polyakovda();
+  }
+  else  if (strcmp(argv[1], "bulychevaoa") == 0) {
+    l = new bulychevaoa();
   }
   else  {
     print_usage(argv[0]);
