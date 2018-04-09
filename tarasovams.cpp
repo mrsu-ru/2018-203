@@ -70,8 +70,8 @@ double* Betta = new double[N];
         Alpha[i] = -A[i][i+1]/(A[i][i] + A[i][i - 1] * Alpha[i - 1]);
         Betta[i] = (b[i] - A[i][i-1]*Betta[i-1])/(A[i][i] + A[i][i - 1] * Alpha[i - 1]);
     }
-    x[N] = (b[N] - A[N][N - 1] * Betta[N - 1]) / (A[N][N] + A[N][N] * Alpha[N]);
-    for(int i=N-1; i>=0; i--)
+    x[N-1] = (b[N-1] - A[N-1][N - 2] * Betta[N - 2]) / (A[N-1][N-1] + A[N-1][N-1] * Alpha[N-1]);
+    for(int i=N-2; i>=0; i--)
 
     x[i] = Alpha[i]*x[i+1]+Betta[i];
     delete[] Alpha;

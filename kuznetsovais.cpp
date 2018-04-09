@@ -51,10 +51,10 @@ int i, j, k, l;
               }
 
 
-        return 1;
+        
         }
 
-}
+//}
 
 
 
@@ -77,7 +77,8 @@ for(int i=1;i<N;i++)
      B[i] = (-b[i] + A[i][i-1]*B[i-1])/(-A[i][i-1]*C[i-1]-A[i][i]);
 
     }
-for(int i=N-1;i>=0;i--)
+    x[N-1] = (b[N-1] - A[N-1][N - 2] * B[N - 2]) / (A[N-1][N-1] + A[N-1][N-1] * C[N-1]);
+for(int i=N-2;i>=0;i--)
     x[i]=C[i]*x[i+1]+B[i];
 }
 
@@ -88,21 +89,24 @@ for(int i=N-1;i>=0;i--)
  */
 void kuznetsovais::lab4()
 {
-    double eps=0.001;
-    double summ;
+    double eps=0.0000001;
+    double summ,L;
+    int k;
+    double x1[N];
+    for(int i=0; i<N; i++) x1[i] = 0;
 do
 {
-for(int i=0; i<n; i++)
+for(int i=0; i<N; i++)
 {
-summ = 0;
-for(int j=0; j<n; j++)
+summ = 0;k=0;
+for(int j=0; j<N; j++)
 if(i!=j)
-summ += A[i][j] * X[k][j];
-X[k+1][i] = (1/A[i][i]) * (B[i] - summ);
-L=fabs(X[k][i]-X[k-1][i]);
+summ += A[i][j] * x1[j];
+x[i] = (1/A[i][i]) * (x1[i] - summ);
+L+=(x1[i]-x[i])*(x1[i]-x[i]);
 }
 k++;
-}while(L>eps);
+}while(sqrt(L)>eps);
 
 }
 
@@ -146,7 +150,7 @@ double eps =0.001;
 		} while (norma >= eps);
 		delete[] Y;
 	}
-}
+//}
 
 
 
