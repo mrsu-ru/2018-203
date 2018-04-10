@@ -107,7 +107,57 @@ double *x;
  */
 void salinaa::lab4()
 {
+double eps = 1e-5;
+    
+	for (int i = 0; i < N; i++) {
+		double maxel = A[i][i];
+		int indRow = i;
+		for (int j = i + 1; j < N; j++)
+			if (maxel < abs(A[j][i])) {
+				indRow = j;
+				maxel = abs(A[j][i]);
+			}
 
+
+		if (indRow != i) {
+			for (int j = i; j < N; j++) {
+				swap(A[i][j], A[indRow][j]);
+			}
+			swap(b[i], b[indRow]);
+		}
+		double summ = 0;
+		for (int j = 0; j < N; j++)
+			summ += abs(A[i][j]);
+		if (2 * abs(A[i][i]) < summ) {
+                cout << "Error" << std::endl;
+        }
+
+		maxel = A[i][i];
+		b[i] /= A[i][i];
+		A[i][i] = 0;
+		for (int j = 0; j<N; j++)
+			if (j != i)
+                A[i][j] /= maxel;
+
+	}
+	for (int i = 0; i < N; i++) {
+		x[i] = 0;
+	}
+	double xx = b[0];
+	double *results = new double[N];
+	do {
+		for (int i = 0; i < N; i++) {
+			results[i] = 0;
+			for (int k = 0; k < N; k++)
+				results[i] -= A[i][k] * x[k];
+			results[i] += b[i];
+		}
+		xx = x[0];
+		for (int i = 0; i < N; i++) {
+			x[i] = results[i];
+		}
+	} while (abs(x[0] - xx)>eps);
+	
 }
 
 
@@ -118,7 +168,7 @@ void salinaa::lab4()
 void salinaa::lab5()
 {
 double eps = 1e-5;
-	double* x = new double[N];
+	
 	double* results = new double[N];
 	double norm;
 
@@ -141,7 +191,7 @@ double eps = 1e-5;
 			results[i] = x[i];
 		}
 	} while (norm > eps);
-	delete[] x;
+	delete[] results;
 }
 
 
@@ -166,6 +216,11 @@ void salinaa::lab7()
 
 
 void salinaa::lab8()
+{
+
+}
+
+void salinaa::lab9()
 {
 
 }
