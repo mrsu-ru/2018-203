@@ -54,4 +54,5 @@ protected:
    virtual void lab7() = 0;
    virtual void lab8() = 0;
    virtual void lab9() = 0;
+   virtual void lab10() {};
 };
