@@ -221,12 +221,6 @@ void salinaa::lab9()
 }
 
 
-void salinaa::lab9()
-{
-
-}
-
-
 std::string salinaa::get_name()
 {
   return "Salin A.A.";
