@@ -81,7 +81,22 @@ double* Be= new double[N];
  */
 void syusinaev::lab4()
 {
-
+double e;
+double eps=0.001;
+double sum;
+do 
+{ 
+for(int i=0; i<N; i++) 
+{ 
+sum = 0; 
+for(int j=0; j<N; j++) 
+if(i!=j) 
+sum += A[i][j] * x[k][j]; 
+x[k+1][i] = (1/A[i][i]) * (b[i] - sum); 
+e=fabs(x[k][i]-x[k-1][i]); 
+} 
+k++; 
+}while(e>eps);
 }
 
 
@@ -90,8 +105,29 @@ void syusinaev::lab4()
  * Метод Якоби или Зейделя
  */
 void syusinaev::lab5()
-{
+{//Якоби
+double eps=0.001;
 
+ double* temp = new double[N];
+	double norm; 
+
+	do {
+		for (int i = 0; i < N; i++) {
+			temp[i] = b[i];
+			for (int g = 0; g < N; g++) {
+				if (i != g)
+					temp[i] -= A[i][g] * x[g];
+			}
+			temp[i] /= A[i][i];
+		}
+        norm = abs(X[0] - temp[0]);
+		for (int h = 0; h < N; h++) {
+			if (fabs(x[h] - temp[h]) > norm)
+				norm = abs(x[h] - temp[h]);
+			x[h] = temp[h];
+		}
+	} while (norm > eps);
+	delete[] temp;
 }
 
 
