@@ -73,7 +73,6 @@ void ivanovii::lab8()
 
 }
 
-
 void ivanovii::lab9()
 {
 
