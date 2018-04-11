@@ -33,6 +33,8 @@ class salinaa : public lab
   virtual void lab7();
 
   virtual void lab8();
+  
+    virtual void lab9();
 
 
   virtual std::string get_name();

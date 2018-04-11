@@ -170,6 +170,11 @@ void salinaa::lab8()
 
 }
 
+void salinaa::lab9()
+{
+
+}
+
 
 std::string salinaa::get_name()
 {
