@@ -123,7 +123,7 @@ void itaevde::lab9()
 }
 
 
-std::string ivanovii::get_name()
+std::string itaevde::get_name()
 {
   return "Itaev D.E.";
 }
