@@ -14,6 +14,7 @@ void tarasovams::lab1()
  */
 void tarasovams::lab2()
 {
+<<<<<<< HEAD
     int i, j, m, c;
     int n = N;
     for(i=0;i<n;i++)
@@ -57,6 +58,10 @@ void tarasovams::lab2()
 
 
 
+=======
+
+}
+>>>>>>> 1018fdf49708e78d48de7c365598caa2cb5a5e70
 
 
 
@@ -115,7 +120,10 @@ void tarasovams::lab8()
 }
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 1018fdf49708e78d48de7c365598caa2cb5a5e70
 void tarasovams::lab9()
 {
 

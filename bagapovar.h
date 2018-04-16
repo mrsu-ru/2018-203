@@ -36,6 +36,10 @@ class bagapovar : public lab
   
   virtual void lab9();
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 1018fdf49708e78d48de7c365598caa2cb5a5e70
   virtual std::string get_name();
 
 };
