@@ -74,6 +74,12 @@ void ivanovdd::lab8()
 }
 
 
+void ivanovdd::lab9()
+{
+
+}
+
+
 std::string ivanovdd::get_name()
 {
   return "Ivanov D.D.";
