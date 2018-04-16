@@ -197,7 +197,7 @@ delete [] oldx;
 void bagapovar::lab6()
 {
 	
-	double Eps = 1e-10;//заданная погрешность
+	double Eps = 1e-18;//заданная погрешность
 	double Del, Res, Abs;//погрешность, невязка, модуль
 
 	double *K = new double[N];//w
@@ -249,7 +249,7 @@ void bagapovar::lab6()
 			x[i] = xrez[i] - Res*L[i];
 		
 		//Проверка на уменьшение погрешности
-		Del = abs(x[0] - Res[0]);
+		Del = abs(x[0] - xrez[0]);
 		for (int i = 0; i < N; i++) {
 			if (abs(x[i] - xrez[i])>Del)
 				Del = abs(x[i] - xrez[i]);
@@ -265,7 +265,7 @@ void bagapovar::lab6()
  */
 void bagapovar::lab7()
 {
-	double Eps = 1e-10;//заданная погрешность
+	double Eps = 1e-20;//заданная погрешность
 	double Del, s, sAbs;//погрешность итерации, скалярный шаг, модуль шага
 
 
