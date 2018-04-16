@@ -24,7 +24,6 @@ void tarasovams::lab2()
                 m=c;
 
 
-
           swap(A[m],A[i]);
           swap(b[m],b[i]);
            b[i]/=A[i][i];
@@ -53,6 +52,7 @@ void tarasovams::lab2()
               }
 
         }
+
 
 /**
  * Метод прогонки

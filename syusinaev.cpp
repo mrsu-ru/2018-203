@@ -20,6 +20,7 @@ void syusinaev::lab2()
         {
           for(k=i+1,l=i ;k<N; k++)
               if (abs(A[k][i])>abs(A[l][i])) l=k;
+          if (A[l][i]==0) return;
 
           swap(A[l],A[i]);
           swap(b[l],b[i]);
@@ -119,12 +120,6 @@ void syusinaev::lab8()
 {
 
 }
-/*
-void syusinaev::lab9()
-{
-
-}
-*/
 
 void syusinaev::lab9()
 {
