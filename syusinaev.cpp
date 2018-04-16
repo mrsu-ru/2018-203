@@ -63,14 +63,14 @@ double* Al= new double[N];
 double* Be= new double[N];
  y = A[0][0];
   Al[0] = -A[0][1] / y;
-  BE[0] = b[0] / y  ;
+  Be[0] = b[0] / y  ;
   for (int i = 1; i < N; i++) {
     y = A[i][i] + A[i][i - 1] * Al[i - 1];
     Al[i] = -A[i][i + 1] / y;
     Be[i] = (b[i] - A[i][i - 1] * Be[i - 1]) / y;
   }
-  x[N] = (b[N] - A[N][N - 1] * BE[N - 1]) / (A[N][N] + A[N][N - 1] * Al[N - 1]);
-  for (int i = N - 1; i >= 0; i--) {
+  x[N-1] = (b[N-1] - A[N-1][N - 2] * Be[N - 2]) / (A[N-1][N-1] + A[N-1][N - 2] * Al[N - 1]);
+  for (int i = N - 2; i >= 0; i--) {
     x[i] = Al[i] * x[i + 1] + Be[i];
   }
 

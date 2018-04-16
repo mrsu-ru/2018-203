@@ -1,7 +1,7 @@
 #pragma once
 #include "lab.h"
 
-class bagapovar : public lab
+class salinaa : public lab
 {
   /**
    * Метод Гаусса
@@ -33,7 +33,7 @@ class bagapovar : public lab
   virtual void lab7();
 
   virtual void lab8();
-  
+
   virtual void lab9();
 
   virtual std::string get_name();

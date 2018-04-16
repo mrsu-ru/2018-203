@@ -6,6 +6,7 @@ class scherbakovdv : public lab
   virtual double scala(double* l, double* r);
   virtual double* mul(double** mat, double* vec);
   virtual double** mul(double** mat1, double** mat2);
+  virtual void printm(double** mat);
   /**
    * Метод Гаусса
    */

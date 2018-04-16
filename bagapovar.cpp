@@ -71,9 +71,40 @@ x[i]=b[i];
  * Метод прогонки
  */
 void bagapovar::lab3()
-{
+{//Это частный случай для метода Гаусса, используется, когда матрица трёхдиагональная
+double *up, *mid, *low; // верхняя, главная, нижняя диагонали 
+up = new double[N]; 
+mid = new double[N]; 
+low = new double[N]; 
+double k; 
 
-}
+low[0] = 0; 
+up[N-1] = 0; 
+
+for (int i = 0; i < N; i++)//Заполняем "диагональные" массивы 
+{ 
+	if (i - 1 >= 0 && i - 1 < N) 
+	up[i] = A[i-1][i]; //верхняя 
+	mid[i] = A[i][i]; //главная 
+	if (i + 1 >= 0 && i + 1 < N) 
+	low[i] = A[i+1][i]; //нижняя 
+} 
+//Прямая прогонка 
+for (int i = 1; i < N; i++) //Вычисляем коэффициенты прогонки 
+{ 
+	k = low[i]/mid[i-1]; 
+	mid[i] = mid[i] - k*up[i-1]; 
+	b[i] = b[i] - k*b[i-1]; 
+} 
+
+//Обратная прогонка 
+x[N-1] = b[N-1]/mid[N-1]; //Вычисляется решение 
+
+for (int i = N - 2; i >= 0; i--) //Решение для следующих частей 
+	x[i]=(b[i]-up[i]*x[i+1])/mid[i]; 
+
+delete[] up, mid, low; 
+} 
 
 
 
@@ -82,18 +113,83 @@ void bagapovar::lab3()
  */
 void bagapovar::lab4()
 {
+double Eps=1e-15;//порядок ошибки
+double Err;
+double *nx = new double[N];//для хранения промежуточных значений
 
+for (int i=0;i<N;i++)//для первичного приближения возьмём столбец свободных членов
+	x[i]=b[i];
+int step=0;
+	
+do{//в данно
+step++;
+  for(int i=0;i < N;i++)
+  {
+   nx[i]=-b[i];
+ 
+   for(int j=0;j < N;j++)
+   {
+    if(i!=j)
+     nx[i]+=A[i][j]*x[j];
+   }
+ 
+   nx[i]/=-A[i][i];
+  }
+  Err=0;
+for(int i=0; i<N; i++) { 
+if(std::abs(x[i]-nx[i]) > Err)//Максимальная разница между элементами решения 
+Err = std::abs(x[i]-nx[i]);
 }
+for(int i=0; i<N; i++) 
+	x[i]=nx[i];
+std::cout<<step<<"    "<<Err<<endl;
+}while (Err>Eps);
 
+delete[] nx;
+}
 
 
 /**
  * Метод Якоби или Зейделя
  */
 void bagapovar::lab5()
-{
+{ 
+//Метод Якоби
+double *oldx = new double[N]; 
 
-}
+for (int i=0; i<N; i++) { 
+x[i]=0; // первоначальное новое решение 
+} 
+
+double Err=0.0; 
+double eps=1e-20; 
+int k=0; 
+
+do { 
+k++; 
+Err=0.0; 
+for(int i=0; i<N; i++) 
+oldx[i]=x[i]; // здесь записывается предыдущее решение 
+for(int i=0; i<N; i++) 
+{ 
+double s=0; //вычисляем s, но мы не берём диагональные элементы 
+for(int j=0; j<i; j++) 
+s += A[i][j] * oldx[j]; 
+for(int j=i+1; j<N; j++) 
+s += A[i][j] * oldx[j]; 
+x[i]=(b[i] - s)/A[i][i]; // вычисляется новое решение 
+} 
+Err= std::abs(oldx[0]-x[0]); 
+for(int i=0; i<N; i++) 
+{ 
+if(std::abs(oldx[i]-x[i]) > Err) 
+Err = std::abs(oldx[i]-x[i]);//максимальная разница между предыдущим решением и текущим. 
+} 
+} while(Err >= eps); 
+std::cout<<"Чиcло итераций: "<<k<<endl; 
+
+delete [] oldx; 
+} 
 
 
 
