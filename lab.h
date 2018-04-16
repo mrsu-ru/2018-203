@@ -7,6 +7,8 @@
 
 using namespace std;
 
+using namespace std;
+
 class lab
 {
 public:

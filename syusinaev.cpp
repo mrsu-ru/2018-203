@@ -6,6 +6,7 @@
 void syusinaev::lab1()
 {
 	lab2();
+std::cout<<"Hello";
 }
 
 
@@ -50,6 +51,7 @@ void syusinaev::lab2()
 
          }//обратный ход
 
+
 }
 
 
@@ -61,6 +63,11 @@ void syusinaev::lab3()
 {
 	
 }
+
+
+
+
+
 
 /**
  * Метод простых итераций
@@ -105,12 +112,15 @@ void syusinaev::lab8()
 {
 
 }
+<<<<<<< HEAD
 /*
 void syusinaev::lab9()
 {
 
 }
 */
+=======
+
 
 void syusinaev::lab9()
 {

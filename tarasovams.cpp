@@ -55,6 +55,11 @@ void tarasovams::lab2()
         return;
         }
 
+
+
+
+
+
 /**
  * Метод прогонки
  */
@@ -108,6 +113,8 @@ void tarasovams::lab8()
 {
 
 }
+
+
 
 void tarasovams::lab9()
 {
