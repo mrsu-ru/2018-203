@@ -102,7 +102,7 @@ void salinaa::lab3()
  */
 void salinaa::lab4()
 {
-double eps = 1e-5;
+double eps = 1e-9;
     
 	for (int i = 0; i < N; i++) {
 		double maxel = A[i][i];

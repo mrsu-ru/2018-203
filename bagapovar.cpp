@@ -103,7 +103,9 @@ x[N-1] = b[N-1]/mid[N-1]; //Вычисляется решение
 for (int i = N - 2; i >= 0; i--) //Решение для следующих частей 
 	x[i]=(b[i]-up[i]*x[i+1])/mid[i]; 
 
-delete[] up, mid, low; 
+delete[] up;
+delete[] mid; 
+delete[] low; 
 } 
 
 
