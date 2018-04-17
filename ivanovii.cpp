@@ -73,11 +73,13 @@ void ivanovii::lab8()
 
 }
 
-
 void ivanovii::lab9()
 {
 
 }
+
+
+
 
 
 std::string ivanovii::get_name()
