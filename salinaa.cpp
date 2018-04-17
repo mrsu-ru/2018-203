@@ -201,7 +201,55 @@ double eps = 1e-5;
  */
 void salinaa::lab6()
 {
+double eps = 1e-5;
+    double norm, tao, taoMod;
+	double* result = new double[N];
+	double *Ark = new double[N];
+	double *rk = new double[N];
 
+	for (int i = 0; i < N; i++) {
+		result[i] = 0;
+	}
+	do {
+		for (int i = 0; i < N; i++) {
+			Ark[i] = 0;
+			for (int j = 0; j < N; j++)
+					Ark[i] += A[i][j] * result[j];
+		}
+
+		for (int i = 0; i < N; i++) {
+					rk[i] = Ark[i]-b[i];
+		}
+
+		for (int i = 0; i < N; i++) {
+			Ark[i] = 0;
+			for (int j = 0; j < N; j++)
+				Ark[i] += A[i][j] * rk[j];
+		}
+
+        tao = 0;
+		taoMod = 0;
+		for (int i = 0; i < N; i++) {
+			tao += Ark[i] * rk[i];
+			taoMod += Ark[i] * Ark[i];
+		}
+		if (tao==taoMod) {
+                tao=1;
+                }
+		else {
+		    tao = tao / taoMod;
+        }
+
+		for (int i = 0; i < N; i++)
+			x[i] = result[i] - tao*rk[i];
+		norm = abs(x[0] - result[0]);
+
+		for (int i = 0; i < N; i++) {
+			if (abs(x[i] - result[i])>norm)
+				norm = abs(x[i] - result[i]);
+			result[i] = x[i];
+		}
+	} while (eps < norm);
 }
 
 
