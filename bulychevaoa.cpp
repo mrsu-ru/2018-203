@@ -1,5 +1,7 @@
 ﻿#include "bulychevaoa.h"
 #include <stdio.h>
+#include <iostream>
+#include <cmath>
 /**
  * Введение в дисциплину
  */
@@ -258,10 +260,37 @@ void bulychevaoa::lab8()
 
 }
 
-
+//Нахождение наибольшего по модулю собственного значения матрицы(метод итераций)
 void bulychevaoa::lab9()
 {
 
+    double * Y = new double[N];//предыдущее приближение
+	double * y = new double[N];//последующее приближение
+	double maxSob,sob,sum;
+	double eps = 1e-9;
+	for (int i = 0; i < N; i++)
+		Y[i] = 0;
+	Y[0] = 1;
+	do{
+		sum = 0;
+		for (int i = 0; i < N; i++)
+			sum += Y[i] * Y[i];
+		sob = sqrt(sum);
+		for (int i = 0; i < N; i++)
+		{
+			y[i] = 0;
+			for (int j = 0; j < N; j++)
+				y[i] += A[i][j] * Y[j] / sob;
+		}
+		sum = 0;
+		for (int i = 0; i < N; i++)
+			sum += y[i] * y[i];
+		maxSob = sqrt(sum);
+		for (int i = 0; i<N; i++)
+			Y[i] = y[i];
+	} while (abs(maxSob - sob)>eps);
+
+	cout << maxSob << endl;
 }
 
 
