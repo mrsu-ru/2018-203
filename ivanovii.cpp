@@ -79,6 +79,9 @@ void ivanovii::lab9()
 }
 
 
+
+
+
 std::string ivanovii::get_name()
 {
   return "Borisov R.S.";
