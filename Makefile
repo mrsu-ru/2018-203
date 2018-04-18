@@ -20,6 +20,7 @@ SOURCES= \
 	salinaa.cpp \
 	mescheryakovam.cpp \
 	itaevde.cpp \
+	biryukovaes.cpp \
 	lab.cpp
 
 OBJECTS=$(SOURCES:.cpp=.o)
