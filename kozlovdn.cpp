@@ -1,18 +1,18 @@
-#include "fedyanovaam.h"
+#include "kozlovdn.h"
 
 /**
  * Введение в дисциплину
  */
-void fedyanovaam::lab1()
+void kozlovdn::lab1()
 {
-
+std::cout<<"hello world";
 }
 
 
 /**
  * Метод Гаусса с выбором главного элемента
  */
-void fedyanovaam::lab2()
+void kozlovdn::lab2()
 {
 
 }
@@ -22,7 +22,7 @@ void fedyanovaam::lab2()
 /**
  * Метод прогонки
  */
-void fedyanovaam::lab3()
+void kozlovdn::lab3()
 {
 
 }
@@ -32,7 +32,7 @@ void fedyanovaam::lab3()
 /**
  * Метод простых итераций
  */
-void fedyanovaam::lab4()
+void kozlovdn::lab4()
 {
 
 }
@@ -42,7 +42,7 @@ void fedyanovaam::lab4()
 /**
  * Метод Якоби или Зейделя
  */
-void fedyanovaam::lab5()
+void kozlovdn::lab5()
 {
 
 }
@@ -52,7 +52,7 @@ void fedyanovaam::lab5()
 /**
  * Метод минимальных невязок
  */
-void fedyanovaam::lab6()
+void kozlovdn::lab6()
 {
 
 }
@@ -62,25 +62,25 @@ void fedyanovaam::lab6()
 /**
  * Метод сопряженных градиентов
  */
-void fedyanovaam::lab7()
+void kozlovdn::lab7()
 {
 
 }
 
 
-void fedyanovaam::lab8()
+void kozlovdn::lab8()
 {
 
 }
 
 
-void fedyanovaam::lab9()
+void kozlovdn::lab9()
 {
 
 }
 
 
-std::string fedyanovaam::get_name()
+std::string kozlovdn::get_name()
 {
-  return "Fedyanova A.M.";
+  return "Kozlov D.N.";
 }
