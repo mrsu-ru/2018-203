@@ -30,7 +30,7 @@ for (int j = 0; j < N; j++)
 {
  swap(A[j][idmax], A[j][k]);
 }
-swap(B[idmax], B[k]);
+swap(b[idmax], b[k]);
 
 
 for (int i = k + 1; i < N; i++)
