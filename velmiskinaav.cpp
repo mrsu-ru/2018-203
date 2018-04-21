@@ -250,7 +250,7 @@ double velmiskinaav::f2(double x) {
 
     return  6*x;
 }
-void velmiskinaav::lab9()
+void velmiskinaav::lab10()
 {
    int a = -3;
     int b = -2;
