@@ -15,9 +15,6 @@ cout<<"Hello!!!";
 
 void fedyanovaam::lab2()
 {
- double p;
-
-void fedyanovaam::lab2(){
   double p;
     int maxn;
 
@@ -61,10 +58,6 @@ void fedyanovaam::lab2(){
 void fedyanovaam::lab3()
 {
  double *P = new double [N]; ///Коэффициенты alfa
-
-void fedyanovaam::lab3(){
-  double *P = new double [N]; ///Коэффициенты alfa
-
   double *Q = new double [N]; ///Коэффициенты betta
 
     P[0] = -A[0][1]/A[0][0];
