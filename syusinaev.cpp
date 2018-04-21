@@ -86,22 +86,34 @@ double* Be= new double[N];
 void syusinaev::lab4()
 { 
 double eps=0.001;
-double x1 = b[0];
-	double *xn = new double[N];
+double norma=0;
+double *nx = new double[N];
+
+for (int i=0;i<N;i++){
+x[i]=0;}
 	
-	do {
-		for (int i = 0; i < N; i++) {
-			xn[i] = 0;
-			for (int k = 0; k < N; k++)
-				xn[i] -= A[i][k] * x[k];
-			xn[i] += b[i];
-		}
-		x1 =  b[0];
-		for (int i = 0; i < N; i++) {
-			x[i] = xn[i];
-		}
-	} while (abs(x[0] - x1)>eps);
-	
+do{
+  for(int i=0;i < N;i++)
+  {
+   xn[i]=-b[i];
+ 
+   for(int j=0;j < N;j++)
+   {
+    if(i!=j)
+     xn[i]+=A[i][j]*x[j];
+   }
+ 
+   xn[i]/=-A[i][i];
+  }
+for(int i=0; i<N; i++) { 
+if(abs(x[i]-xn[i]) > norma)
+norma =abs(x[i]-xn[i]);
+}
+for(int i=0; i<N; i++) 
+	x[i]=xn[i];
+}while (norma>Eps);
+
+delete[] xn;
 
 }
 
@@ -181,7 +193,7 @@ else c=b;
 do { 
 c=c-(2*(log(c))-(c/2))/((2.0/c) - (1.0/2.0));  
 } 
-while (fabs(f(c))>=e); 
+while (fabs(f(c))>=ebs); 
 
 }
 
