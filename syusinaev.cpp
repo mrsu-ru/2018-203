@@ -186,15 +186,14 @@ void syusinaev::lab9()
 void syusinaev::lab10()
 {
 
-double a=1,b=2 c,ebs=0.001; 
+double a=1,b=2 c,e=0.001; 
 
 if( (2*(log(a))-(a/2))*((-2.0)/(a*a))>0 ) c=a; 
 else c=b; 
 do { 
 c=c-(2*(log(c))-(c/2))/((2.0/c) - (1.0/2.0));  
 } 
-while (fabs(f(c))>=ebs); 
-
+while (abs((2*(log(c))-(c/2)))>=e); 
 }
 
 std::string syusinaev::get_name()
