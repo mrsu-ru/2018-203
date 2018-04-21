@@ -87,7 +87,36 @@ double* Betta = new double[N];
  */
 void tarasovams::lab4()
 {
+double eps = 1e-9;
+double tauh = 1e-5;
+for (int i = 0; i < N; i++) {
+		x[i] = 0;
+	}
+	double x1;
+	double *xr = new double[N];
+	int step = 0;
+
+	do {
+		step++;
+		for (int i = 0; i < N; i++) {
+			xr[i] = x[i];
+			for (int k = 0; k < N; k++)
+				xr[i] -= tauh*A[i][k] * x[k];
+			xr[i] += tauh * b[i];
+
+		}
+		x1 = 0.;
+		for (int i = 0; i < N; i++) {
+			x1 += (xr[i]-x[i])*(xr[i]-x[i]);
+		}
+
+		for (int i = 0; i < N; i++) {
+			x[i] = xr[i];
+		}
+		printf(x1, step);
+	} while (sqrt(x1)>eps);
 }
+
 
 
 
@@ -164,45 +193,35 @@ void tarasovams::lab9()
 {
 
 }
-
-void tarasovams::lab10()
-{
 double f(double x)
 {
  return (5-x*exp(x));
- }
-double f1(double x)
-{
- return (x-((5-x*exp(x))/(-x*exp(x)-exp(x))));
 }
+
 double f2(double x)
 {
  return (-(x+2)*exp(x));
 }
-double hord (double a, double b, double e )
-{ int i=0;
+void tarasovams::lab10()
+{
+
 double c;
-clock_t start, stop;
-start=clock();
 do {
 if(f(a)*f2(a)>0){
 b = b - ((a-b) * f(b))/(f(a) - f(b));
-i++;
+
 c=b;
 }
 else if (f(b)*f2(b)>0) {
 a = a - ((b-a) * f(a))/(f(b) - f(a));
-i++;
+
 c=a;
 }
 } while (fabs(f(c))>=e);
-stop=clock();
-cout<<"x = "<<c<<"\n";
-cout<<"Колличество итераций: "<<i<<"\n";
-cout<<"Время выполнения: "<< (double)(stop - start) / (double)(CLOCKS_PER_SEC);
 
+cout<<"x = "<<c<<"\n";
 }
-}
+
 
 std::string tarasovams::get_name()
 {
