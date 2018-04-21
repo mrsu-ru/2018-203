@@ -6,6 +6,7 @@
 void biryukovaes::lab1()
 {
 std::cout<<"Hello, world!";
+	
 }
 
 
@@ -51,25 +52,28 @@ int i, j, m, l;
  */
 void biryukovaes::lab3()
 {
- double* a=new double[N];//Прогоночные коэффициеты
- double* b=new double[N];//
-    //Прямая прогонка
-    a[0]=-A[0][1]/A[0][0];
-    b[0]=b[0]/A[0][0];
-   for(int i=1;i<N;i++)
+
+    double* new_A = new double[N];
+    double* new_b = new double[N];
+
+    new_A[0] = A[0][1] / (-A[0][0]);
+    new_b[0] = b[0] / A[0][0];
+
+    for(int i = 1; i < N; i++)
     {
-     a[i]=-A[i][i+1]/(A[i][i-1]*a[i-1]+A[i][i]);
-     b[i]=(b[i]-A[i][i-1]*b[i-1])/(A[i][i-1]*a[i-1]+A[i][i]);
+        new_A[i] = A[i][i+1] / (-A[i][i-1] * new_A[i-1] - A[i][i]);
+        new_b[i] = (-b[i] + A[i][i-1] * new_b[i-1]) / ( -A[i][i-1] * new_A[i-1] - A[i][i]);
     }
-	//Обратная прогонка
-    x[N-1] = b[N-1];
-    for(int i=N-2; i>=0; i--)
-     x[i] = a[i]*x[i+1]+b[i];
-      delete[] a;
-      delete[] b;
+
+    for(int i = N - 1; i >= 0; i--)
+    {
+        x[i] = new_A[i] * x[i+1] + new_b[i];
+    }
+
+    delete[] new_A;
+    delete[] new_b;
+
 }
-
-
 
 /**
  * Метод простых итераций
