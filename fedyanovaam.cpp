@@ -102,8 +102,42 @@ void fedyanovaam::lab4()
  * Метод Якоби или Зейделя
  */
 void fedyanovaam::lab5()
-{
+{ //Якоби
+    const double eps = 10E-20;
 
+	double* y = new double[N];
+	double r = 0; /// норма, определяемая как наибольшая разность компонент столбца иксов соседних итераций.
+
+	for(int i=0; i<N; i++)
+	{
+		x[i] = 0;
+	}
+
+	do
+	{
+		for(int i=0; i<N; i++)
+		{
+			y[i] = b[i];
+			for(int j=0; j<N; j++)
+			{
+				if(i != j)
+				{
+					y[i] -= A[i][j]*x[j];
+				}
+			}
+			y[i] /= A[i][i];
+		}
+
+		r = abs(x[0] - y[0]);
+
+		for(int i=0; i<N; i++)
+		{
+			if(abs(x[i]-y[i]) > r)
+				r = sqrt((x[i]-y[i])*(x[i]-y[i]));
+			x[i] = y[i];
+		}
+	} while(r >= eps);
+	delete[] y;
 }
 
 
