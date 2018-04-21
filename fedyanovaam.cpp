@@ -12,9 +12,14 @@ cout<<"Hello!!!";
 /**
  * Метод Гаусса с выбором главного элемента
  */
+<<<<<<< HEAD
 void fedyanovaam::lab2()
 {
  double p;
+=======
+void fedyanovaam::lab2(){
+  double p;
+>>>>>>> fa39b47249585ff972fc100c09bc1da99c5ec339
     int maxn;
 
       for (int k=0; k<N-1; k++){
@@ -40,7 +45,11 @@ void fedyanovaam::lab2()
           for (int j=i+1;j<N;j++)
               x[i]-=A[i][j]*x[j];
           x[i] /= A[i][i];
+<<<<<<< HEAD
       }  
+=======
+      }
+>>>>>>> fa39b47249585ff972fc100c09bc1da99c5ec339
 }
 
 
@@ -49,9 +58,14 @@ void fedyanovaam::lab2()
 /**
  * Метод прогонки
  */
+<<<<<<< HEAD
 void fedyanovaam::lab3()
 {
  double *P = new double [N]; ///Коэффициенты alfa
+=======
+void fedyanovaam::lab3(){
+  double *P = new double [N]; ///Коэффициенты alfa
+>>>>>>> fa39b47249585ff972fc100c09bc1da99c5ec339
   double *Q = new double [N]; ///Коэффициенты betta
 
     P[0] = -A[0][1]/A[0][0];
@@ -62,11 +76,19 @@ void fedyanovaam::lab3()
       P[i] = A[i][i+1]/(-A[i][i] - A[i][i-1]*P[i-1]);
       Q[i] = (-b[i] + A[i][i-1]*Q[i-1])/(-A[i][i] - A[i][i-1]*P[i-1]);
     }
+<<<<<<< HEAD
 
     x[N-1] = Q[N-1];
     for(int i=N-2; i>=0; i--) ///Определим решение
       x[i] = P[i]*x[i+1] + Q[i];
 
+=======
+
+    x[N-1] = Q[N-1];
+    for(int i=N-2; i>=0; i--) ///Определим решение
+      x[i] = P[i]*x[i+1] + Q[i];
+
+>>>>>>> fa39b47249585ff972fc100c09bc1da99c5ec339
     delete [] P;
     delete [] Q;
 }
