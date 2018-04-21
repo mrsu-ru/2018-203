@@ -87,7 +87,7 @@ double* Betta = new double[N];
  */
 void tarasovams::lab4()
 {
-double eps = 1e-9;
+double eps = 1e-13;
 double tauh = 1e-5;
 for (int i = 0; i < N; i++) {
 		x[i] = 0;
@@ -113,7 +113,6 @@ for (int i = 0; i < N; i++) {
 		for (int i = 0; i < N; i++) {
 			x[i] = xr[i];
 		}
-		printf(x1, step);
 	} while (sqrt(x1)>eps);
 }
 
@@ -126,7 +125,7 @@ for (int i = 0; i < N; i++) {
 void tarasovams::lab5()
 {
 
-double e =0.001;
+double e =1e-13;
 double* a = new double[N];
 double Norm = 0;
 
@@ -193,19 +192,19 @@ void tarasovams::lab9()
 {
 
 }
-double f(double x)
+static double f(double x)
 {
  return (5-x*exp(x));
 }
 
-double f2(double x)
+static double f2(double x)
 {
  return (-(x+2)*exp(x));
 }
 void tarasovams::lab10()
 {
 
-double c;
+double a, b,c,e;
 do {
 if(f(a)*f2(a)>0){
 b = b - ((a-b) * f(b))/(f(a) - f(b));
