@@ -87,7 +87,6 @@ double* Betta = new double[N];
  */
 void tarasovams::lab4()
 {
-
 }
 
 
@@ -97,6 +96,41 @@ void tarasovams::lab4()
  */
 void tarasovams::lab5()
 {
+
+double e =0.001;
+double* a = new double[N];
+double Norm = 0;
+
+        for(int i=0; i<N; i++)
+        {
+        x[i] = 0;
+        }
+        do
+		{
+			for(int i=0; i<N; i++)
+			{
+				a[i] = b[i];
+				for(int j=0; j<N; j++)
+				{
+                if(i != j)
+					{
+                    a[i] -= A[i][j]*x[j];
+					}
+				}
+				a[i] /= A[i][i];
+			}
+
+		Norm = abs(x[0] - a[0]);
+
+			for(int i=0; i<N; i++)
+			{
+				if(abs(x[i]-a[i]) > Norm)
+                Norm = sqrt((x[i]-a[i])*(x[i]-a[i]));
+				x[i] = a[i];
+			}
+		}
+		while (Norm >= e);
+		delete[] a;
 
 }
 
@@ -131,6 +165,44 @@ void tarasovams::lab9()
 
 }
 
+void tarasovams::lab10()
+{
+double f(double x)
+{
+ return (5-x*exp(x));
+ }
+double f1(double x)
+{
+ return (x-((5-x*exp(x))/(-x*exp(x)-exp(x))));
+}
+double f2(double x)
+{
+ return (-(x+2)*exp(x));
+}
+double hord (double a, double b, double e )
+{ int i=0;
+double c;
+clock_t start, stop;
+start=clock();
+do {
+if(f(a)*f2(a)>0){
+b = b - ((a-b) * f(b))/(f(a) - f(b));
+i++;
+c=b;
+}
+else if (f(b)*f2(b)>0) {
+a = a - ((b-a) * f(a))/(f(b) - f(a));
+i++;
+c=a;
+}
+} while (fabs(f(c))>=e);
+stop=clock();
+cout<<"x = "<<c<<"\n";
+cout<<"Колличество итераций: "<<i<<"\n";
+cout<<"Время выполнения: "<< (double)(stop - start) / (double)(CLOCKS_PER_SEC);
+
+}
+}
 
 std::string tarasovams::get_name()
 {
