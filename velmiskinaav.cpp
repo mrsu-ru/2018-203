@@ -176,7 +176,7 @@ for(int i=0; i<N; i++)
 void velmiskinaav::lab6()
 {
 //N- размерность, A- матрица, b- вектор свободных членов, x-вектор результат
-int count=0;//  количество итераций
+//int count=0;//  количество итераций
 double *R = new double [N];
 double *Delta = new double [N];
 double *TempX = new double[N];

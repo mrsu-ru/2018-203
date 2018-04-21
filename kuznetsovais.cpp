@@ -51,10 +51,8 @@ int i, j, k, l;
               }
 
 
-        
+       // return 1;
         }
-
-//}
 
 
 
@@ -89,25 +87,35 @@ for(int i=N-2;i>=0;i--)
  */
 void kuznetsovais::lab4()
 {
-    double eps=0.0000001;
-    double summ,L;
-    int k;
-    double x1[N];
-    for(int i=0; i<N; i++) x1[i] = 0;
-do
-{
-for(int i=0; i<N; i++)
-{
-summ = 0;k=0;
-for(int j=0; j<N; j++)
-if(i!=j)
-summ += A[i][j] * x1[j];
-x[i] = (1/A[i][i]) * (x1[i] - summ);
-L+=(x1[i]-x[i])*(x1[i]-x[i]);
-}
-k++;
-}while(sqrt(L)>eps);
+   double eps = 1e-13;
+double tauh = 1e-5;
 
+for (int i = 0; i < N; i++) {
+		x[i] = 0;
+	}
+	double x1;
+	double *xr = new double[N];
+	int step = 0;
+
+	do {
+		step++;
+		for (int i = 0; i < N; i++) {
+			xr[i] = x[i];
+			for (int k = 0; k < N; k++)
+				xr[i] -= tauh*A[i][k] * x[k];
+			xr[i] += tauh * b[i];
+
+		}
+		x1 = 0.;
+		for (int i = 0; i < N; i++) {
+			x1 += (xr[i]-x[i])*(xr[i]-x[i]);
+		}
+
+		for (int i = 0; i < N; i++) {
+			x[i] = xr[i];
+		}
+		//printf("err = %f, step = %d\n", x1, step);
+	} while (sqrt(x1)>eps);
 }
 
 
@@ -117,8 +125,7 @@ k++;
  */
 void kuznetsovais::lab5()
 {
-double eps =0.001;
-
+double eps = 1e-13;
 		double* Y = new double[N];
 		double norma = 0;
 
@@ -150,7 +157,6 @@ double eps =0.001;
 		} while (norma >= eps);
 		delete[] Y;
 	}
-//}
 
 
 
@@ -159,7 +165,55 @@ double eps =0.001;
  */
 void kuznetsovais::lab6()
 {
+double eps = 1e-13;
+    double norm, tao, taoMod;
+	double* result = new double[N];
+	double *Ark = new double[N];
+	double *rk = new double[N];
 
+	for (int i = 0; i < N; i++) {
+		result[i] = 0;
+	}
+	do {
+		for (int i = 0; i < N; i++) {
+			Ark[i] = 0;
+			for (int j = 0; j < N; j++)
+					Ark[i] += A[i][j] * result[j];
+		}
+
+		for (int i = 0; i < N; i++) {
+					rk[i] = Ark[i]-b[i];
+		}
+
+		for (int i = 0; i < N; i++) {
+			Ark[i] = 0;
+			for (int j = 0; j < N; j++)
+				Ark[i] += A[i][j] * rk[j];
+		}
+
+        tao = 0;
+		taoMod = 0;
+		for (int i = 0; i < N; i++) {
+			tao += Ark[i] * rk[i];
+			taoMod += Ark[i] * Ark[i];
+		}
+		if (tao==taoMod) {
+                tao=1;
+                }
+		else {
+		    tao = tao / taoMod;
+        }
+
+		for (int i = 0; i < N; i++)
+			x[i] = result[i] - tao*rk[i];
+		norm = abs(x[0] - result[0]);
+
+		for (int i = 0; i < N; i++) {
+			if (abs(x[i] - result[i])>norm)
+				norm = abs(x[i] - result[i]);
+			result[i] = x[i];
+		}
+	} while (eps < norm);
 }
 
 
@@ -183,6 +237,41 @@ void kuznetsovais::lab9()
 
 }
 
+
+    double func(double x)
+    {
+      return (exp(x)+pow(x,2)-4);
+    }
+    double func1(double x)
+    {
+      return (exp(x)+pow(x,2)-4);
+    }
+    double func2(double x)
+    {
+      return (exp(x)+pow(x,2)-4);
+    }
+
+
+
+    double find1(double x0, double x1, double eps)
+    {
+
+        while (fabs(x1 - x0) > eps)
+        {
+            x0 = x1 - (x1 - x0) * func(x1) / (func(x1) - func(x0));
+            x1= x0- (x0 - x1) * func(x0) / (func(x0) - func(x1));
+        }
+        return x1;
+    }
+
+void kuznetsovais::lab10()
+{
+    double A, B, X;
+	double eps =0.001;
+ //Метод хорд
+     X=find1 (A, B, eps );
+	cout<<"x= " << X;
+}
 
 std::string kuznetsovais::get_name()
 {
