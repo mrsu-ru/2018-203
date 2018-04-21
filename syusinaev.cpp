@@ -1,5 +1,9 @@
 #include "syusinaev.h"
 
+
+
+
+
 /**
  * Введение в дисциплину
  */
@@ -84,17 +88,18 @@ void syusinaev::lab4()
 { 
 double eps=1.e-7;
 double x1 = b[0];
-	double *xr = new double[N];
+	double *xn = new double[N];
+	
 	do {
 		for (int i = 0; i < N; i++) {
-			xr[i] = 0;
+			xn[i] = 0;
 			for (int k = 0; k < N; k++)
-				xr[i] -= A[i][k] * x[k];
-			xr[i] += b[i];
+				xn[i] -= A[i][k] * x[k];
+			xn[i] += b[i];
 		}
-		x1 = x[0];
+		x1 =  b[0];
 		for (int i = 0; i < N; i++) {
-			x[i] = xr[i];
+			x[i] = xn[i];
 		}
 	} while (abs(x[0] - x1)>eps);
 	
@@ -170,12 +175,26 @@ void syusinaev::lab9()
 void syusinaev::lab10()
 {
 
-}
+double a=1,b=2 c,ebs=0.001; 
 
+if( (2*(log(a))-(a/2))*((-2.0)/(a*a))>0 ) c=a; 
+else c=b; 
+do { 
+c=c-(2*(log(c))-(c/2))/((2.0/c) - (1.0/2.0));  
+} 
+while (fabs(f(c))>=e); 
+
+}
 
 std::string syusinaev::get_name()
 {
   return "Syusina E.V.";
 }
+
+
+
+
+
+
 
 
