@@ -87,8 +87,35 @@ double* Betta = new double[N];
  */
 void tarasovams::lab4()
 {
+double eps = 1e-13;
+double tauh = 1e-5;
+for (int i = 0; i < N; i++) {
+		x[i] = 0;
+	}
+	double x1;
+	double *xr = new double[N];
+	int step = 0;
 
+	do {
+		step++;
+		for (int i = 0; i < N; i++) {
+			xr[i] = x[i];
+			for (int k = 0; k < N; k++)
+				xr[i] -= tauh*A[i][k] * x[k];
+			xr[i] += tauh * b[i];
+
+		}
+		x1 = 0.;
+		for (int i = 0; i < N; i++) {
+			x1 += (xr[i]-x[i])*(xr[i]-x[i]);
+		}
+
+		for (int i = 0; i < N; i++) {
+			x[i] = xr[i];
+		}
+	} while (sqrt(x1)>eps);
 }
+
 
 
 
@@ -97,6 +124,41 @@ void tarasovams::lab4()
  */
 void tarasovams::lab5()
 {
+
+double e =1e-13;
+double* a = new double[N];
+double Norm = 0;
+
+        for(int i=0; i<N; i++)
+        {
+        x[i] = 0;
+        }
+        do
+		{
+			for(int i=0; i<N; i++)
+			{
+				a[i] = b[i];
+				for(int j=0; j<N; j++)
+				{
+                if(i != j)
+					{
+                    a[i] -= A[i][j]*x[j];
+					}
+				}
+				a[i] /= A[i][i];
+			}
+
+		Norm = abs(x[0] - a[0]);
+
+			for(int i=0; i<N; i++)
+			{
+				if(abs(x[i]-a[i]) > Norm)
+                Norm = sqrt((x[i]-a[i])*(x[i]-a[i]));
+				x[i] = a[i];
+			}
+		}
+		while (Norm >= e);
+		delete[] a;
 
 }
 
@@ -129,6 +191,34 @@ void tarasovams::lab8()
 void tarasovams::lab9()
 {
 
+}
+static double f(double x)
+{
+ return (5-x*exp(x));
+}
+
+static double f2(double x)
+{
+ return (-(x+2)*exp(x));
+}
+void tarasovams::lab10()
+{
+
+double a, b,c,e;
+do {
+if(f(a)*f2(a)>0){
+b = b - ((a-b) * f(b))/(f(a) - f(b));
+
+c=b;
+}
+else if (f(b)*f2(b)>0) {
+a = a - ((b-a) * f(a))/(f(b) - f(a));
+
+c=a;
+}
+} while (fabs(f(c))>=e);
+
+cout<<"x = "<<c<<"\n";
 }
 
 
