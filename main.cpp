@@ -3,6 +3,7 @@
 #include "lab.h"
 #include <iostream>
 #include "ivanovii.h"
+#include "ivanovdd.h"
 #include "zhalninrv.h"
 #include "scherbakovdv.h"
 #include "polyakovda.h"
@@ -82,6 +83,9 @@ int main(int argc, char** argv)
   }
   else  if (strcmp(argv[1], "biryukovaes") == 0) {
     l = new biryukovaes();
+  }
+  else  if (strcmp(argv[1], "ivanovdd") == 0) {
+    l = new ivanovdd();
   }
   else  {
     print_usage(argv[0]);
