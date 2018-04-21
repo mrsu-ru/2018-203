@@ -234,6 +234,11 @@ void velmiskinaav::lab8()
 
 }
 
+void velmiskinaav::lab9()
+{
+
+}
+
 //метод касательных
 
 double velmiskinaav::f(double x) {
