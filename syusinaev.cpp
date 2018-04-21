@@ -64,13 +64,13 @@ double* Al= new double[N];
 double* Be= new double[N];
  y = A[0][0];
   Al[0] = -A[0][1] / y;
-  BE[0] = b[0] / y  ;
+  Be[0] = b[0] / y  ;
   for (int i = 1; i < N; i++) {
     y = A[i][i] + A[i][i - 1] * Al[i - 1];
     Al[i] = -A[i][i + 1] / y;
     Be[i] = (b[i] - A[i][i - 1] * Be[i - 1]) / y;
   }
-  x[N] = (b[N] - A[N][N - 1] * BE[N - 1]) / (A[N][N] + A[N][N - 1] * Al[N - 1]);
+  x[N] = (b[N] - A[N][N - 1] * Be[N - 1]) / (A[N][N] + A[N][N - 1] * Al[N - 1]);
   for (int i = N - 1; i >= 0; i--) {
     x[i] = Al[i] * x[i + 1] + Be[i];
   }
@@ -82,7 +82,7 @@ double* Be= new double[N];
  */
 void syusinaev::lab4()
 { 
-double eps=0.001;
+double eps=1.e-7;
 double x1 = b[0];
 	double *xr = new double[N];
 	do {
@@ -108,7 +108,7 @@ double x1 = b[0];
  */
 void syusinaev::lab5()
 {//Якоби
-double eps=0.001;
+double eps=1.e-9;
 
  double* temp = new double[N];
 	double norm; 
@@ -122,7 +122,7 @@ double eps=0.001;
 			}
 			temp[i] /= A[i][i];
 		}
-        norm = abs(X[0] - temp[0]);
+        norm = abs(x[0] - temp[0]);
 		for (int h = 0; h < N; h++) {
 			if (fabs(x[h] - temp[h]) > norm)
 				norm = abs(x[h] - temp[h]);
