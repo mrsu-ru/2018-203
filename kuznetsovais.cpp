@@ -179,6 +179,34 @@ void kuznetsovais::lab9()
 
 }
 
+void kuznetsovais::lab10()
+{
+double func(double x)
+{
+  return (exp(x)+pow(x,2)-4);
+}
+double func1(double x)
+{
+  return (exp(x)+pow(x,2)-4);
+}
+double func2(double x)
+{
+  return (exp(x)+pow(x,2)-4);
+}
+
+//Метод хорд
+double find1(double x0, double x1, double eps)
+{
+
+    while (fabs(x1 - x0) > eps)
+    {
+        x0 = x1 - (x1 - x0) * func(x1) / (func(x1) - func(x0));
+        x1= x0- (x0 - x1) * func(x0) / (func(x0) - func(x1));
+    }
+    return x1;
+
+}
+}
 
 std::string kuznetsovais::get_name()
 {
