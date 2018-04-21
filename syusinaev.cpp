@@ -115,8 +115,7 @@ void syusinaev::lab8()
 {
 
 }
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 /*
 void syusinaev::lab9()
 {
