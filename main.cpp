@@ -21,6 +21,7 @@
 #include "mescheryakovam.h"
 #include "itaevde.h"
 #include "biryukovaes.h"
+#include "velmiskinaav.h"
 
 void print_usage(char* name);
 
@@ -86,6 +87,9 @@ int main(int argc, char** argv)
   }
   else  if (strcmp(argv[1], "ivanovdd") == 0) {
     l = new ivanovdd();
+  }
+  else  if (strcmp(argv[1], "velmiskinaav") == 0) {
+    l = new velmiskinaav();
   }
   else  {
     print_usage(argv[0]);

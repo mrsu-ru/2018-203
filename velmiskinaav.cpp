@@ -62,7 +62,7 @@ void velmiskinaav::lab3()
 {
  int i;
  double znam;
- double *x=new double[N];
+ //double *x=new double[N];
 
     b[0] /= A[0][0];//Q[1]
     A[0][1] /= -A[0][0];//P[1]
@@ -94,7 +94,7 @@ void velmiskinaav::lab4()
 double norma; //чебышевская норма вектора
  double xn[N]={0};//вектор для текущей итерации, начальное значение
        //должно быть равно начальному приближению
-double *x=new double[N];
+//double *x=new double[N];
 
 
  for(int i=0; i < N;i++)
@@ -159,7 +159,7 @@ double eps =0.00001;
 		delete[] Y;
 }
 
-void velmiskinaav::MatrVekt(int N, double **A, double *V, double *R)//перемножения матрицы на вектор
+void MatrVekt(int N, double **A, double *V, double *R)//перемножения матрицы на вектор
 //N- размерность, A- матрица, V- вектор, R- результат
 {
 for(int i=0; i<N; i++)
@@ -180,7 +180,7 @@ int count=0;//  количество итераций
 double *R = new double [N];
 double *Delta = new double [N];
 double *TempX = new double[N];
-double *x = new double[N];
+//double *x = new double[N];
 double maxi=0.0, Tau=0.0, TempTau=0.0;
 double eps = 0.0000001;
 for (int i=0; i<N; i++)
@@ -241,17 +241,17 @@ void velmiskinaav::lab9()
 
 //метод касательных
 
-double velmiskinaav::f(double x) {
+double f(double x) {
 
     return   pow(x,3) + 3*x + 1;
 }
 
-double velmiskinaav::f1(double x) {
+double f1(double x) {
 
     return   3*pow(x, 2)+3;
 }
 
-double velmiskinaav::f2(double x) {
+double f2(double x) {
 
     return  6*x;
 }
