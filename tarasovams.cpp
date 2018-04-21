@@ -204,7 +204,9 @@ double f2(double x)
 }
 void tarasovams::lab10()
 {
-
+double a=1;
+double b=2;
+double e=0.001;
 double c;
 do {
 if(f(a)*f2(a)>0){
