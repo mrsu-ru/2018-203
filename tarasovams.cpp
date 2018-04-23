@@ -203,8 +203,10 @@ static double f2(double x)
 }
 void tarasovams::lab10()
 {
-
-double a, b,c,e;
+double a=1;
+double b=2;
+double e=0.001;
+double c;
 do {
 if(f(a)*f2(a)>0){
 b = b - ((a-b) * f(b))/(f(a) - f(b));
