@@ -95,8 +95,38 @@ void borisovrs::lab4()
  */
 void borisovrs::lab5()
 {
+//Метод Якоби
+	double *oldx = new double[N]; 
+	for (int i=0; i<N; i++) { 
+		x[i]=0;} // заполняем решение нулями 
+	double Err=0.0; 
+	double eps=1e-20; // погрешность
+	int k=0; 
+	do { 
+		k++; 
+		Err=0.0; 
+		for(int i=0; i<N; i++) 
+			oldx[i]=x[i]; // предыдущее решение 
+			for(int i=0; i<N; i++) 
+			{ 
+				double s=0;
+				for(int j=0; j<i; j++) 
+					s += A[i][j] * oldx[j]; //под главной диагональю
+				for(int j=i+1; j<N; j++) 
+					s += A[i][j] * oldx[j]; //над главной диагональю
+				x[i]=(b[i] - s)/A[i][i]; // вычисляется новое решение 
+			}			 
+			Err= std::abs(oldx[0]-x[0]); 
+			for(int i=0; i<N; i++) 
+			{ 
+				if(std::abs(oldx[i]-x[i]) > Err) 
+				Err = std::abs(oldx[i]-x[i]);//максимальная разница между предыдущим решением и текущим. 
+			} 
+	} while(Err >= eps); 
+delete [] oldx; 
+} 
 
-}
+
 
 
 
