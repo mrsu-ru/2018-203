@@ -351,9 +351,99 @@ void bagapovar::lab8()
  */
 void bagapovar::lab9()
 {
+	double * Y = new double[N];//первый вектор приближения
+	double * M = new double[N];//второй вектор приближения
+	double maxL, L, sum;
+	double EPS = 1e-10;
+	
+	//первичное приближение начального вектора
+	for (int i = 0; i < N; i++)
+		Y[i] = 0;
+	Y[0] = 1;
+	
+	do{
+		sum = 0;
+		//нахождение скалярного произведения векторов приближения 
+		for (int i = 0; i < N; i++)
+			sum += Y[i] * Y[i];
+		
+		L = sqrt(sum);//норма вектора приближения
+		
+		//построение последовательности векторов
+		for (int i = 0; i < N; i++)
+		{
+			M[i] = 0;
+			for (int j = 0; j < N; j++)
+				M[i] += A[i][j] * Y[j] / L;
+		}
+		sum = 0;
+		
+		//сравнение нормы полученного вектора с заданной погрешностью
+		for (int i = 0; i < N; i++)
+			sum += M[i] * M[i];
+		maxL = sqrt(sum);
+		
+		for (int i = 0; i<N; i++)
+			Y[i] = M[i];
+	} while (abs(maxL - L)>EPS);
 
+	//cout << maxL << endl;
 }
 
+
+
+void bagapovar::lab10()
+{
+using namespace std;
+
+
+//f(x)=x*x*x-2*x*x-5*x+6 Корни:-2,1,3
+
+//введение функции(уравнения в виде f(x)=0 
+double f(double x)
+{
+    double f=x*x*x-2*x*x-5*x+6;
+	return f;
+}
+//производная этой функции 
+double df(double x)
+{
+    double df=3*x*x-4*x-5;
+	return df;
+}
+
+//сжимающее отображение 
+double g(double x)
+{
+    return x - f(x)/df(x);
+}
+ 
+int main()
+{
+    double x;
+    double eps=1e-30;
+    cout<<"Enter initial root value   : ";//начальное приближение корня
+	cin>>x;
+    //итерации приближения
+	for(double iter = 1; eps < fabs(f(x)); iter++){//выбран счётчик в double,потмоу что может быть очень много итераций
+        system("cls");
+        
+		cout<<"Iteration : "<<setprecision(0)<<iter<<endl;
+        
+		if(df(x) == 0)//Чёртовски важный момент(!)
+            break;//ведь если df(x) == 0, то будет деление на ноль x - f(x)/df(x)
+        
+		cout<<"x    = "<<x    <<endl;
+        cout<<"g(x) = "<<g(x) <<endl;
+        cout<<"df(x)= "<<df(x)<<endl;
+        cout<<"f(x) = "<<f(x) <<endl;
+        
+		x = g(x);//новое приближение
+    }
+    system("pause");
+    }
+
+}	
 
 std::string bagapovar::get_name()
 {
