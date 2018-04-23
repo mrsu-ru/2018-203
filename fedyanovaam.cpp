@@ -93,7 +93,33 @@ void fedyanovaam::lab3()
  */
 void fedyanovaam::lab4()
 {
+double eps = 1e-13;
+double tauh = 1e-5;
+for (int i = 0; i < N; i++) {
+		x[i] = 0;
+	}
+	double x1;
+	double *xr = new double[N];
+	int step = 0;
 
+	do {
+		step++;
+		for (int i = 0; i < N; i++) {
+			xr[i] = x[i];
+			for (int k = 0; k < N; k++)
+				xr[i] -= tauh*A[i][k] * x[k];
+			xr[i] += tauh * b[i];
+
+		}
+		x1 = 0.;
+		for (int i = 0; i < N; i++) {
+			x1 += (xr[i]-x[i])*(xr[i]-x[i]);
+		}
+
+		for (int i = 0; i < N; i++) {
+			x[i] = xr[i];
+		}
+	} while (sqrt(x1)>eps);
 }
 
 
