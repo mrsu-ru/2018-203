@@ -46,7 +46,7 @@ void fedyanovaam::lab2()
 
       }
 
-}
+//}
 
 
 
@@ -196,10 +196,6 @@ void fedyanovaam::lab9()
 
 }
 
-void fedyanovaam::lab9()
-{
-
-}
 
 
 std::string fedyanovaam::get_name()
