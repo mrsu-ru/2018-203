@@ -77,6 +77,23 @@ double max;
  */
 void kozlovdn::lab3()
 {
+	int N1=N-1;
+	double *alfa = new double[N];
+	double *beta = new double[N];
+	double y = A[0][0];
+	alfa[0] = -A[0][1] / y;
+	beta[0] = b[0] / y;
+	for (int i = 1; i < N1; i++) {
+		y = A[i][i] + A[i][i - 1] * alfa[i - 1];
+		alfa[i] = -A[i][i + 1] / y;
+		beta[i] = (b[i] - A[i][i - 1] * beta[i - 1]) / y;
+	}
+
+	x[N1] = (b[N1] - A[N1][N1-1] * beta[N1-1]) / (A[N1][N1] + A[N1][N1-1] * alfa[N1-1]);
+	for (int i = N1-1; i >= 0; i--) {
+		x[i] = alfa[i] * x[i + 1] + beta[i];
+	}
+}
 
 }
 
