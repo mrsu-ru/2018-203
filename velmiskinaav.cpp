@@ -15,43 +15,42 @@ void velmiskinaav::lab1()
 void velmiskinaav::lab2()
 {
 int i, j, k, l;
-        //прямой ход
-        for(i = 0; i < N; i++)
+
+    for(i=0;i<N;i++)
         {
-         for(k = i + 1, l = i; k < N; k++)
-          if (std::abs(A[k][i]) > std::abs(A[l][i]))
-                l = k;
+          k=i;
+          for(l=i+1; l<N; l++)
+          if (abs(A[l][i])>abs(A[k][i]))
+                k=l;
 
-          std::swap(A[l],A[i]);
-          std::swap(b[l],b[i]);
-
-          b[i]/=A[i][i];
+          std::swap(A[k],A[i]);
+          std::swap(b[k],b[i]);
+           b[i]/=A[i][i];
           for(j=N-1; j>i; A[i][j--]/=A[i][i]);
 
           A[i][i]=1;
 
           for(int j=i+1; j<N;j++)
-            {
-            for(k=N-1;k>i;k--)
-            A[j][k]-=A[i][k]*A[j][i];
-            b[j]-=b[i]*A[j][i];
-            A[j][i]=0;
-            }
+		  {
+          for(l=N-1;l>i;l--)
+          A[j][l]-=A[i][l]*A[j][i];
+          b[j]-=b[i]*A[j][i];
 
+          A[j][i]=0;
+          }
         }
-          //обратный ход
-          double *x=new double[N];
-
+		  
+		  
           x[N-1]=b[N-1];
-          for ( int i = N - 2; i >= 0; i--)
+          for ( int i = N - 2; i >= 0; i-- )
          {
            x[i] = b[i];
-           for ( int j = i + 1; j < N; j++)
-            {
+           for ( int j = i + 1; j < N; j++ ) 
+		   {
               x[i] -= A[i][j] * x[j];
-            }
-         }
-}
+           }
+         }        
+ }
 
 
 
@@ -60,29 +59,25 @@ int i, j, k, l;
  */
 void velmiskinaav::lab3()
 {
- int i;
- double znam;
- //double *x=new double[N];
+ double *P = new double[N];
+double *Q = new double[N];
+int z;
 
-    b[0] /= A[0][0];//Q[1]
-    A[0][1] /= -A[0][0];//P[1]
+ P[0]=A[0][1]/(-A[0][0]);
+ Q[0]=b[0]/A[0][0];
 
-    for(i = 1;i < N-1;i++)
+for(int i=1;i<N;i++)
     {
-        znam = - A[i][i] - A[i][i - 1] * A[i - 1][i]; //общий знаменатель для формул нахождения P[i], Q[i]
-        A[i][i + 1] /= znam; //P[i]
-        b[i] = (A[i][i - 1] * b[i - 1] - b[i]) / znam; //Q[i]
-    }
-        //строка ниже для вычисления Q[N]
-    b[N - 1] = (A[N - 1][N - 2] * b[N - 2] - b[N - 1]) / (-A[N - 1][N - 1] -A[N - 1][N - 2] * A[N - 2][N - 1]);
 
+     P[i] = A[i][i+1]/(-A[i][i-1]*P[i-1]-A[i][i]);
+     Q[i] = (-b[i] + A[i][i-1]*Q[i-1])/(-A[i][i-1]*P[i-1]-A[i][i]);
 
-        //обратный ход
-    for(i = N - 2; i > -1; i--)
-    {
-       x[i] = b[i] + b[i + 1] * A[i][i + 1];
     }
+    x[N-1] = (b[N-1] - A[N-1][N - 2] * Q[N - 2]) / (A[N-1][N-1] + A[N-1][N-1] * P[N-1]);
+for(int i=N-2;i>=0;i--)
+    x[i]=P[i]*x[i+1]+Q[i];
 }
+
 
 
 
@@ -91,31 +86,7 @@ void velmiskinaav::lab3()
  */
 void velmiskinaav::lab4()
 {
-double norma; //чебышевская норма вектора
- double xn[N]={0};//вектор для текущей итерации, начальное значение
-       //должно быть равно начальному приближению
-//double *x=new double[N];
-
-
- for(int i=0; i < N;i++)
-  {
-   x[i]=-b[i];
-
-   for(int j=0;j < N;j++)
-   {
-    if(i!=j)
-     x[i]+=A[i][j]*x[j];
-   }
-
-   x[i]/=-A[i][i];
-  }
-
-  for(int i=0;i < N;i++)
-  {
-   if(fabs(x[i]-xn[i]) > norma)
-    norma=fabs(x[i]-xn[i]);
-   xn[i]=x[i];
-  }
+	
 }
 
 
@@ -240,36 +211,17 @@ void velmiskinaav::lab9()
 }
 
 //метод касательных
-
-double f(double x) {
-
-    return   pow(x,3) + 3*x + 1;
-}
-
-double f1(double x) {
-
-    return   3*pow(x, 2)+3;
-}
-
-double f2(double x) {
-
-    return  6*x;
-}
 void velmiskinaav::lab10()
 {
-   int a = -3;
-    int b = -2;
-    double c;
-    double eps = 0.0001;
+   double f, x, df;
+double  EPS = 0.000001;
+  do {
+    f = pow(x,3) + 3*x + 1;
+    df = 3*pow(x, 2)+3;
+    x = x - f / df;
+  } while (fabs(f) > EPS);
 
-    if(f(a)*f2(a) > 0) c = a;
-    else c = b;
-    do {
-        c=c-f(c)/f1(c);
-
-    }
-    while (fabs(f(c))>=eps);
-        std::cout<<"c="<<c<<"\n";
+  cout << "x0= "<< x;
 }
 
 
