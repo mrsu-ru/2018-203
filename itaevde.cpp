@@ -1,60 +1,51 @@
-#include "kozlovdn.h"
+#include "itaevde.h"
 
 /**
  * Введение в дисциплину
  */
-void kozlovdn::lab1()
+void itaevde::lab1()
 {
-std::cout<<"hello world";
+std::cout << "hello world";
 }
 
 
 /**
  * Метод Гаусса с выбором главного элемента
  */
-void kozlovdn::lab2()
+void itaevde::lab2()
 {
 double max;
 	int k, index;
 	const double eps = 0.00001;
 	k = 0;
-	while (k < N)
-	{
-		// Поиск строки с максимальным a[i][k]
+	while (k < N){
 		max = abs(A[k][k]);
 		index = k;
-		for (int i = k + 1; i < N; i++)
-		{
-			if (abs(A[i][k]) > max)
-			{
+		for (int i = k + 1; i < N; i++){
+			if (abs(A[i][k]) > max){
 				max = abs(A[i][k]);
 				index = i;
 			}
 		}
-		// Перестановка строк
-		if (max < eps)
-		{
-			// нет ненулевых диагональных элементов
+		
+		if (max < eps){
 			cout << "Решение получить невозможно из-за нулевого столбца ";
 			cout << index << " матрицы A" << endl;
 			return;
 		}
 		for (int j = 0; j < N; j++)
-		{
 		    swap(A[k][j], A[index][j]);
-
-		}
 		swap(b[k],b[index]);
 
-
-		for (int i = k; i < N; i++)
-		{
+		for (int i = k; i < N; i++){
 			double temp = A[i][k];
-			if (abs(temp) < eps) continue; // для нулевого коэффициента пропустить
+			if (abs(temp) < eps) 
+				continue; 
 			for (int j = 0; j < N; j++)
 				A[i][j] = A[i][j] / temp;
 			b[i] = b[i] / temp;
-			if (i == k)  continue; // уравнение не вычитать само из себя
+			if (i == k)
+				continue; 
 			for (int j = 0; j < N; j++)
 				A[i][j] = A[i][j] - A[k][j];
 			b[i] = b[i] - b[k];
@@ -62,8 +53,7 @@ double max;
 		k++;
 	}
 	// обратная подстановка
-	for (k = N - 1; k >= 0; k--)
-	{
+	for (k = N - 1; k >= 0; k--){
 		x[k] = b[k];
 		for (int i = 0; i < k; i++)
 			b[i] = b[i] - A[i][k] * x[k];
@@ -75,7 +65,7 @@ double max;
 /**
  * Метод прогонки
  */
-void kozlovdn::lab3()
+void itaevde::lab3()
 {
 
 }
@@ -85,7 +75,7 @@ void kozlovdn::lab3()
 /**
  * Метод простых итераций
  */
-void kozlovdn::lab4()
+void itaevde::lab4()
 {
 
 }
@@ -95,7 +85,7 @@ void kozlovdn::lab4()
 /**
  * Метод Якоби или Зейделя
  */
-void kozlovdn::lab5()
+void itaevde::lab5()
 {
 
 }
@@ -105,7 +95,7 @@ void kozlovdn::lab5()
 /**
  * Метод минимальных невязок
  */
-void kozlovdn::lab6()
+void itaevde::lab6()
 {
 
 }
@@ -115,25 +105,25 @@ void kozlovdn::lab6()
 /**
  * Метод сопряженных градиентов
  */
-void kozlovdn::lab7()
+void itaevde::lab7()
 {
 
 }
 
 
-void kozlovdn::lab8()
+void itaevde::lab8()
 {
 
 }
 
 
-void kozlovdn::lab9()
+void itaevde::lab9()
 {
 
 }
 
 
-std::string kozlovdn::get_name()
+std::string itaevde::get_name()
 {
-  return "Kozlov D.N.";
+  return "Itaev D.E.";
 }
