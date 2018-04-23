@@ -132,7 +132,13 @@ void serguninaes::lab8()
 }
 
 
-std::string ivanovii::get_name()
+void serguninaes::lab9()
+{
+
+}
+
+
+std::string serguninaes::get_name()
 {
   return "Sergunina E.S.";
 }
