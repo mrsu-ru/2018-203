@@ -80,21 +80,62 @@ void biryukovaes::lab3()
  */
 void biryukovaes::lab4()
 {
-
+double eps = 1e-13;
+double tau = 1e-5;
+for (int i = 0; i < N; i++) {
+		x[i] = 0;
+	}
+	double x1;
+	double *xn = new double[N];
+	int step = 0;
+	do {
+		step++;
+		for (int i = 0; i < N; i++) {
+			xn[i] = x[i];
+			for (int k = 0; k < N; k++)
+				xn[i] -= tau*A[i][k] * x[k];
+			xn[i] += tau * b[i];
+		}
+		x1 = 0.;
+		for (int i = 0; i < N; i++) {
+			x1 += (xn[i]-x[i])*(xn[i]-x[i]);
+		}
+		for (int i = 0; i < N; i++) {
+			x[i] = xn[i];
+		}
+	} while (sqrt(x1)>eps);
 }
-
 
 
 /**
  * Метод Якоби или Зейделя
  */
 void biryukovaes::lab5()
-{
-
+{ //Якоби
+    const double eps = 10E-20;
+	double* y = new double[N];
+	double r = 0; 
+	for(int i=0; i<N; i++){
+		x[i] = 0; }
+	do {
+		for(int i=0; i<N; i++){
+			y[i] = b[i];
+			for(int j=0; j<N; j++){
+				if(i != j){
+					y[i] -= A[i][j]*x[j];
+				}
+			}
+			y[i] /= A[i][i];
+		}
+		r = abs(x[0] - y[0]);
+		for(int i=0; i<N; i++){
+			if(abs(x[i]-y[i]) > r)
+				r = sqrt((x[i]-y[i])*(x[i]-y[i]));
+			x[i] = y[i];
+		}
+	} while(r >= eps);
+	delete[] y;
 }
-
-
-
 /**
  * Метод минимальных невязок
  */
