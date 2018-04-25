@@ -61,7 +61,7 @@ void velmiskinaav::lab3()
 {
  double *P = new double[N];
 double *Q = new double[N];
-int z;
+// int z; // ZHRV: unused variable
 
  P[0]=A[0][1]/(-A[0][0]);
  Q[0]=b[0]/A[0][0];
