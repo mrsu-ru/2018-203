@@ -3,9 +3,31 @@
 /**
  * Введение в дисциплину
  */
+ 
+ double static f(double x)
+{
+    double f=x*x-2*x+1;
+	return f;
+}
+
+double static df(double x)
+{
+    double df=2*x-2;
+	return df;
+}
+ 
 void salinaa::lab1()
 {
-std::cout<<"Hello world";
+  int iter = 0;
+  double x, eps=1e-5;
+  cout<<"x0 = ";
+  cin>>x;	
+  do {
+  x = x - f(x) / df(x);
+  iter++;
+  } while (fabs(f(x)) > eps && iter<20000);
+  cout << iter << " iterations " << endl;
+  cout << x;
 }
 
 
@@ -254,7 +276,69 @@ double eps = 1e-5;
  */
 void salinaa::lab7()
 {
+double eps = 1e-15;
+	double norm, s, sMod;
+   
+	double *d = new double[N];
+	double *g = new double[N];
+	double *dd = new double[N];
+	double *result = new double[N];
 
+
+
+	for (int i = 0; i<N; i++){
+		result[i] = 0;
+	}
+
+
+	do {
+		for (int i = 0; i < N; i++) {
+			d[i] = 0;
+			for (int j = 0; j < N; j++)
+				d[i] += A[i][j] * result[j];
+		}
+
+		for (int i = 0; i < N; i++) {
+			g[i] = d[i] - b[i];
+		}
+
+		for (int i = 0; i < N; i++) {
+			d[i] = 0;
+			for (int j = 0; j < N; j++)
+				d[i] += A[i][j] * g[j];
+		}
+
+		for (int i = 0; i < N; i++) {
+			dd[i] = 0;
+			for (int j = 0; j < N; j++) {
+				dd[i] += A[i][j] * d[j];
+			}
+		}
+
+		s = 0;
+		sMod = 0;
+		for (int i = 0; i < N; i++) {
+			s += d[i] * g[i];
+			sMod += dd[i] * d[i];
+		}
+		if (s == sMod)
+			s = 1;
+		else
+			s = s / sMod;
+
+		for (int i = 0; i < N; i++)
+			x[i] = result[i] - s*g[i];
+
+
+		norm = abs(x[0] - result[0]);
+
+		for (int i = 0; i < N; i++) {
+			if (abs(x[i] - result[i])>norm)
+				norm = abs(x[i] - result[i]);
+				result[i] = x[i];
+		}
+	} while (eps < norm);
+	
 }
 
 
