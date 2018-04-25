@@ -47,11 +47,28 @@ void scherbakovdv::printm(double** mat){
 }
 
 /**
- * Введение в дисциплину
+ * Решение нелинейных уравнений
  */
+ double f(double x){
+	 //Возьмём что-то простое
+	 return pow(x,2)-5*x+6;
+ }
+ double ff(double x){
+	 return 2*x-5;
+ }
 void scherbakovdv::lab1()
 {
-	printf("Hello world");
+	//Допустимая погрешность
+	const double Eps=0.1E-10;
+	//Аварийный счётчик
+	int counter=0;
+	double X,XNext;
+	XNext=0;
+	do{
+		X=XNext;
+		XNext=X-f(X)/ff(X);
+	} while((abs(XNext-X)>Eps)&&(counter++<1000));
+	printf("\n\n\nX=%f\n\n\n\n",XNext);
 }
 
 
@@ -267,7 +284,7 @@ void scherbakovdv::lab6()
 
 
 /**
- * Метод сопряженных градиентов - done
+ * Метод сопряженных градиентов - passed
  */
 void scherbakovdv::lab7()
 {
@@ -315,7 +332,7 @@ void scherbakovdv::lab7()
 
 
 /**
- * Метод вращения для нахождения собственных значений матрицы
+ * Метод вращения для нахождения собственных значений матрицы - passed
  */
 void scherbakovdv::lab8()
 {
@@ -378,9 +395,29 @@ void scherbakovdv::lab8()
  */
 void scherbakovdv::lab9() 
 {
-	
+	//Допустимая погрешность
+	const double Eps=0.1E-5;
+	printf("LAB 7: Eps is %.2e\n",Eps);
+	//Аварийный счётчик
+	int counter=0;
+	double* Y = new double[N];
+	double* YNext = new double[N];
+	double MSelf, Self;
+	memset(Y,0,MSIZE);
+	Y[0]=1;
+	do {
+		Self = sqrt(scala(Y,Y));
+		memset(YNext,0,MSIZE);
+		for (int i=0;i<N;i++)
+			for (int j=0;j<N;j++)
+				YNext[i]+=A[i][j]*Y[j]/Self;
+		MSelf = sqrt(scala(YNext,YNext));
+		memcpy(Y,YNext,MSIZE);
+	} while((abs(MSelf-Self)>Eps)&&(counter++<1000));
+	printf("\n\n\n%f\n\n\n",MSelf);
+	delete[] Y;
+	delete[] YNext;
 }
-
 
 
 std::string scherbakovdv::get_name()
