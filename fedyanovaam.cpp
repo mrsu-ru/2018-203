@@ -197,6 +197,33 @@ void fedyanovaam::lab9()
 }
 
 
+static double f(double x)
+{
+return ((x*x)/10-exp(2*(x)));
+}
+
+
+void fedyanovaam::lab10()
+{ //метод половинного деления
+double a=1;
+double b=2;
+double e=0.001;
+double c;
+int i=0;
+if (f(a)*f(b)>0) cout<<"На этом промежутке корней нет"<<endl;
+else {
+do
+{
+{c=(a+b)/2 ;
+if (f(a)*f(c)<0)
+b=c;
+else   a=c;
+i++;}}
+while((fabs(b-a)>e)&&(f(c)!=0));
+cout<<"x="<<c<<"\n";}
+}
+
+
 
 std::string fedyanovaam::get_name()
 {
