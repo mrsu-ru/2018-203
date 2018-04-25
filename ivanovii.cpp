@@ -5,7 +5,7 @@
  */
 void ivanovii::lab1()
 {
-
+std::cout<<"hello world";
 }
 
 
@@ -73,8 +73,16 @@ void ivanovii::lab8()
 
 }
 
+void ivanovii::lab9()
+{
+
+}
+
+
+
+
 
 std::string ivanovii::get_name()
 {
-  return "Ivanov I.I.";
+  return "Borisov R.S.";
 }
