@@ -195,12 +195,16 @@ void fedyanovaam::lab9()
 {
 
 }
-void fedyanovaam::lab10()
-{ //метод половинного деления
-double f(double x)
+
+
+static double f(double x)
 {
 return ((x*x)/10-exp(2*(x)));
 }
+
+
+void fedyanovaam::lab10()
+{ //метод половинного деления
 double a=1;
 double b=2;
 double e=0.001;
