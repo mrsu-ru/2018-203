@@ -95,7 +95,38 @@ for(int i=N-1;i>=0;i--)
  */
 void grishaevaov::lab4()
 {
+double Eps=0.00000001;
+double Err;
+double *nx = new double[N];
+for (int i=0;i<N;i++)
+	x[i]=b[i];
+int step=0;
+	
+do{
+step++;
+  for(int i=0;i < N;i++)
+  {
+   nx[i]=-b[i];
+ 
+   for(int j=0;j < N;j++)
+   {
+    if(i!=j)
+     nx[i]+=A[i][j]*x[j];
+   }
+ 
+   nx[i]/=-A[i][i];
+  }
+  Err=0;
+for(int i=0; i<N; i++) { 
+if(std::abs(x[i]-nx[i]) > Err)
+Err = std::abs(x[i]-nx[i]);
+}
+for(int i=0; i<N; i++) 
+	x[i]=nx[i];
+std::cout<<step<<"     "<<Err<<endl;
+}while (Err>Eps);
 
+delete[] nx;
 }
 
 
@@ -105,7 +136,41 @@ void grishaevaov::lab4()
  */
 void grishaevaov::lab5()
 {
-
+double eps = 0.00000001; 
+double px[N]; 
+double sum = 0; 
+int flag = 1; 
+for(int i = 0; i < N; i++) 
+{ 
+x[i] = 0; 
+} 
+do 
+{ 
+for(int i = 0; i < N; i++) 
+{ 
+px[i] = x[i]; 
+} 
+for(int i = 0; i < N; i++) 
+{ 
+sum = 0; 
+for(int j = 0; j < i; j++) 
+{ 
+sum =sum + A[i][j] * x[j]; 
+} 
+for(int j = i+1; j < N; j++) 
+sum =sum + A[i][j] * px[j]; 
+x[i] = (b[i] - sum) / A[i][i]; 
+} 
+flag = 1; 
+for(int i = 0; i < N; i++) 
+{ 
+if(fabs(x[i] - px[i]) < eps) 
+{ 
+flag = 0; 
+break; 
+} 
+} 
+} while(flag == 1); 
 }
 
 
@@ -138,7 +203,23 @@ void grishaevaov::lab9()
 {
 
 }
-
+void grishaevaov::lab10()
+{
+double y; 
+for(int i=0; i < 100; i++) { 
+double xd; 
+double eps = 1e-5; 
+y = i; 
+int ind = 0; 
+do { 
+ind++; 
+xd = y; 
+y = exp((-y)); 
+} while (abs(xd - y) > eps || ind > 1000); 
+if (y == y) break; 
+} 
+cout << y << endl; 
+}
 
 std::string grishaevaov::get_name()
 {
