@@ -18,8 +18,10 @@ double static df(double x)
  
 void salinaa::lab1()
 {
-int iter = 0;
-  double x=0, eps=1e-5;
+  int iter = 0;
+  double x, eps=1e-5;
+  cout<<"x0 = ";
+  cin>>x;	
   do {
   x = x - f(x) / df(x);
   iter++;
