@@ -36,6 +36,8 @@ class mescheryakovam : public lab
   
   virtual void lab9();
 
+  virtual void lab10();
+
   virtual std::string get_name();
 
 };
