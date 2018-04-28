@@ -168,6 +168,31 @@ double eps = 1e-9;
 void kozlovdn::lab5()
 {
 
+	double eps = 1e-8;
+	double* results = new double[N];
+	double norm;
+
+	for (int i = 0; i < N; i++) {
+		results[i] = b[i];
+	}
+	do {
+		for (int i = 0; i < N; i++) {
+			x[i] = b[i];
+			for (int j = 0; j < N; j++) {
+				if (i != j)
+					x[i] -= A[i][j] * results[j];
+			}
+			x[i] /= A[i][i];
+		}
+        norm = fabs(results[0] - x[0]);
+		for (int i = 0; i < N; i++) {
+			if (fabs(results[i] - x[i]) > norm)
+				norm = fabs(results[i] - x[i]);
+			results[i] = x[i];
+		}
+	} 
+	while (norm > eps);
+	delete[] results;
 }
 
 
@@ -177,7 +202,57 @@ void kozlovdn::lab5()
  */
 void kozlovdn::lab6()
 {
+	double eps = 1e-5;
+	double delta, r, rModul; //погрешность, невязка, модуль
 
+	double *w = new double[N];
+	double *v = new double[N];
+	double *result = new double[N];
+
+	//задаём первоначальное приближение
+	for (int i = 0; i<N; i++)
+		result[i] = 0;
+	//цикл для нахождения корней
+	do{
+	//находим редуцированную систему(одна часть)
+		for (int i = 0; i < N; i++) {
+			w[i] = 0;
+			for (int j = 0; j < N; j++)
+				w[i] += A[i][j] * result[j];
+		}
+		//находим редуцированную систему(вторая часть)
+		for (int i = 0; i < N; i++) {
+			v[i] = w[i] - b[i];//нахождение вектора невязки
+		}
+		//нахождение скалярного произведения матрицы системы и вектора невязки
+		for (int i = 0; i < N; i++) {
+			w[i] = 0;
+			for (int j = 0; j < N; j++)
+				w[i] += A[i][j] * v[j];
+		}
+
+		r = 0;
+		rModul = 0;
+		//нахождение значения итерационного параметра
+		for (int i = 0; i < N; i++) {
+			r += w[i] * v[i];
+			rModul += w[i] * w[i];
+		}
+		if (r==rModul) {r=1;
+		}
+		else {r = r / rModul;
+		}
+		//получение приближения решения
+		for (int i = 0; i < N; i++)
+			x[i] = result[i] - r*v[i];
+			//Проверка на уменьшение погрешности
+		delta = abs(x[0] - result[0]);
+		for (int i = 0; i < N; i++) {
+			if (abs(x[i] - result[i])>delta)
+				delta = abs(x[i] - result[i]);
+			result[i] = x[i];
+		}
+	} while (eps < delta);
 }
 
 
@@ -199,9 +274,13 @@ void kozlovdn::lab8()
 
 void kozlovdn::lab9()
 {
-
+	
 }
 
+void kozlovdn::lab10()
+{
+
+}
 
 std::string kozlovdn::get_name()
 {
