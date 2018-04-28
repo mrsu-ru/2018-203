@@ -276,11 +276,36 @@ void kozlovdn::lab9()
 {
 	
 }
+static double f(double x)
+{
+ return (x*x-10);
+}
+
+static double f2(double x)
+{
+ return (2*x);
+}
 
 void kozlovdn::lab10()
 {
-
+	double a=1;
+	double b=2;
+	double eps=0.001;
+	double z;
+	do {
+		if( f(a)*f2(a)>0){
+			b = b - ((a-b) * f(b))/(f(a) - f(b));
+			z=b;
+		}
+		else if (f(b)*f2(b)>0) {
+			a = a - ((b-a) * f(a))/(f(b) - f(a));
+			z=a;
+		}
+	} 
+	while (fabs(f(t))>=eps);
+	cout<<"x = "<<z<<"\n";
 }
+
 
 std::string kozlovdn::get_name()
 {
