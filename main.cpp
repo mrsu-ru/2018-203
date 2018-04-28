@@ -18,6 +18,7 @@
 #include "grishaevaoov.h"
 #include "bulychevaoa.h"
 #include "salinaa.h"
+#include "seninvs.h"
 #include "mescheryakovam.h"
 #include "itaevde.h"
 #include "biryukovaes.h"
@@ -94,6 +95,9 @@ int main(int argc, char** argv)
   }
   else  if (strcmp(argv[1], "kozlovdn") == 0) {
     l = new kozlovdn();
+  }
+  else  if (strcmp(argv[1], "seninvs") == 0) {
+    l = new seninvs();
   }
   else  {
     print_usage(argv[0]);

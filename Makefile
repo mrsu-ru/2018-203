@@ -19,6 +19,7 @@ SOURCES= \
 	nefedovms.cpp \
 	bulychevaoa.cpp \
 	salinaa.cpp \
+	seninvs.cpp \
 	mescheryakovam.cpp \
 	itaevde.cpp \
 	biryukovaes.cpp \
