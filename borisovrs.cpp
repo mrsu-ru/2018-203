@@ -169,7 +169,7 @@ static double f2(double x)
 {
  return (2*x);
 }
-void tarasovams::lab10()
+void borisovrs::lab10()
 {
 	double A=1;
 	double B=2;
