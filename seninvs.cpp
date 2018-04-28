@@ -84,7 +84,7 @@ void seninvs::lab4() {}
  * Метод Якоби
  */
 void seninvs::lab5() {
-  long double eps = 0.0001;
+  long double eps = 1.e-10;
   long double* p = new long double[N];
   long double norl;
   for (int i = 0; i < N; i++)
