@@ -162,12 +162,12 @@ void borisovrs::lab9()
 
 static double f(double x)
 {
- return (5-x*exp(x));
+ return (x*x-2);
 }
 
 static double f2(double x)
 {
- return (-(x+2)*exp(x));
+ return (2*x);
 }
 void tarasovams::lab10()
 {
@@ -175,7 +175,7 @@ void tarasovams::lab10()
 	double B=2;
 	double eps=0.001,t;
 	do {
-		if(f(A)*f2(A)>0){
+		if( f(A)*f2(A)>0){
 			B = B - ((A-B) * f(B))/(f(A) - f(B));
 			t=B;
 		}
