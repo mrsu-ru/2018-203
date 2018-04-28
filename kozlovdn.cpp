@@ -302,7 +302,7 @@ void kozlovdn::lab10()
 			z=a;
 		}
 	} 
-	while (fabs(f(t))>=eps);
+	while (fabs(f(z))>=eps);
 	cout<<"x = "<<z<<"\n";
 }
 
