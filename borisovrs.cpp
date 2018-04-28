@@ -133,7 +133,7 @@ void borisovrs::lab5()
 					s += A[i][j] * oldx[j]; //над главной диагональю
 				x[i]=(b[i] - s)/A[i][i]; // вычисляется новое решение 
 			}			 
-			Err= std::abs(oldx[0]-x[0]); 
+			Err=std::abs(oldx[0]-x[0]); 
 			for(int i=0; i<N; i++) 
 			{ 
 				if(std::abs(oldx[i]-x[i]) > Err) 
@@ -177,6 +177,32 @@ void borisovrs::lab9()
 
 }
 
+static double f(double x)
+{
+ return (x*x-2);
+}
+
+static double f2(double x)
+{
+ return (2*x);
+}
+void borisovrs::lab10()
+{
+	double A=1;
+	double B=2;
+	double eps=0.001,t;
+	do {
+		if( f(A)*f2(A)>0){
+			B = B - ((A-B) * f(B))/(f(A) - f(B));
+			t=B;
+		}
+		else if (f(B)*f2(B)>0) {
+			A = A - ((B-A) * f(A))/(f(B) - f(A));
+			t=A;
+		}
+	} while (fabs(f(t))>=eps);
+	cout<<"x = "<<t<<"\n";
+}
 
 std::string borisovrs::get_name()
 {
