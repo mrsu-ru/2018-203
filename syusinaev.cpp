@@ -86,6 +86,7 @@ double* Be= new double[N];
 void syusinaev::lab4()
 {
 double eps = 1e-9;
+double tauh = 1e-5;
 for (int i = 0; i < N; i++) {
 		x[i] = 0;
 	}
@@ -110,7 +111,6 @@ for (int i = 0; i < N; i++) {
 		for (int i = 0; i < N; i++) {
 			x[i] = xr[i];
 		}
-		printf("err = %f, step = %d\n", x1, step);
 	} while (sqrt(x1)>eps);
 }
 
@@ -245,12 +245,12 @@ return ((-2.0)/(x*x));
 void syusinaev::lab10()
 {
 double a=1,b=2 c,e=0.001; 
-if( (2*(log(a))-(a/2))*((-2.0)/(a*a))>0 ) c=a; 
+if(f(a)*f2(a)>0) c=a; 
 else c=b; 
 do { 
-c=c-(2*(log(c))-(c/2))/((2.0/c) - (1.0/2.0));  
+c=c-f(c)/f1(c); 
 } 
-while (abs((2*(log(c))-(c/2)))>=e); 
+while (fabs(f(c))>=e); 
 }
 
 std::string syusinaev::get_name()
