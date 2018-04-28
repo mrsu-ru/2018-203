@@ -14,50 +14,43 @@ void serguninaes::lab1()
  */
 void serguninaes::lab2()
 {
-    int t;
-for (int k = 0; k < N; k++)
-{
-//максимальный элемент по модулю в столбце и меняем строки местами
-int max=k;
-for(int i=k+1;i<N;i++)
-if(abs(A[i][k]) > abs(A[max][k]))
-max=i;
-for(int i=0;i<N;i++)
-std::swap(A[k][i],A[max][i]);
-std::swap(b[k],b[max]);
+    int i, j, maximal;
 
-t = A[k][k]; //получаем единицы на [k][k]
-for (int j = 0; j < N; j++)
-A[k][j]= A[k][j]/t;
-b[k]=b[k]/t;
+ for(i=0;i<N;i++)
+        {
+          for(j=i+1,maximal=i ;j<N; j++)
+              if (abs(A[j][i])>abs(A[j][i])) maximal=j;
+          if (A[maximal][i]==0) return;
 
-for (int i = k + 1; i < N; i++)
-{
-t = A[i][k];
-//получаем нули под единицами
-for (int j = 0; j < N; j++)
-{
-A[i][j] -= A[k][j] * t;
-}
-b[i] -= b[k] * t;
-}
-}
+          swap(A[maximal],A[i]);
+          swap(b[maximal],b[i]);
 
-//обратный ход
-for (int i = N - 1; i > 0; i--)
-{
-for (int j= i - 1; j >= 0; j--)
-{
-t = A[j][i];
-//получаем нули над единицами
-for (int k = 0; k < N; k++)
-A[j][k] -= A[i][k] * t;
-b[i] -= b[k] * t;
-}
-}
+           b[i]=b[i]/A[i][i];
 
-for(int i=0; i<N; i++) x[i]=b[i];
+          for(  int k=N-1 ;k>i; A[i][k--]/=A[i][i]);
+          A[i][i]=1;
 
+          for(int k=i+1; k<N;k++){
+            for(j=N-1;j>i;j--)
+                A[k][j]-=A[i][j]*A[k][i];
+              b[k]-=b[i]*A[k][i];
+            A[k][i]=0;
+          }
+       cout<<endl;
+
+        }
+
+       x[N]=b[N];
+
+       for ( int i = N - 3; i >= 0; i-- )
+         {
+           x[i] = b[i];
+           for ( int k = i + 1; k < N; k++ ) {
+              x[i] -= A[i][k] * x[k];
+              }
+                  cout<<endl;
+
+         }
 }
 
 
@@ -102,6 +95,38 @@ void serguninaes::lab4()
  */
 void serguninaes::lab5()
 {
+    //Метод Якоби
+double Eps = 0.0000001;
+double* a= new double[N];
+double n=0; // норма, определяемая как наибольшая разность компонент столбца иксов соседних итераций
+
+for(int i=0; i<N; i++) //начальное приближение
+{
+x[i] = 0;
+}
+
+do {
+for (int i = 0; i < N; i++) {
+B[i] = a[i];
+
+for (int k = 0; k < N; k++) {
+if (i != k) {a[i] -= A[i][k] * x[k];}
+}
+a[i] =a[i]/ A[i][i];
+}
+
+n = x[0] - a[0];
+n=abs(n);
+
+for (int j = 0; j < N; j++) {
+if (abs(x[j] - a[j]) > n)
+n = x[j] - B[j];
+n=abs(n);
+x[j] = a[j];
+}
+} while (n >= Eps);
+
+delete[] a;
 
 }
 
@@ -134,6 +159,28 @@ void serguninaes::lab8()
 
 void serguninaes::lab9()
 {
+
+}
+
+void serguninaes::lab10()
+{ //vtnjl gjkjdby ltktybz
+
+double a=1;
+double b=2;
+double Eps = 0.0000001;
+double c;
+int i=0;
+
+do
+{ c=(a+b)/2 ;
+if (f(a)*f(c)<0)
+b=c;
+else
+a=c;
+
+i++;} while((abs(b-a)>Eps)&&(f(c)!=0));
+
+cout<<"x = "<<c<<"\n";
 
 }
 
