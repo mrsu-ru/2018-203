@@ -5,7 +5,7 @@
  */
 void ivanovdd::lab1()
 {
-
+std::cout << "Hello World!!!" << std::endl;
 }
 
 
@@ -14,7 +14,42 @@ void ivanovdd::lab1()
  */
 void ivanovdd::lab2()
 {
+for (int k = 0; k < N; k++) {
+	int idmax = -1;
+	double max = 0;
+for (int l=0; l<N; l++) {
+	if (abs(A[k][l]) >= max) {
+		max = abs(A[k][l]);
+		idmax = l;
+}
+}
 
+if(idmax != -1){
+for (int j = 0; j < N; j++)
+{
+ swap(A[j][idmax], A[j][k]);
+}
+swap(B[idmax], B[k]);
+
+
+for (int i = k + 1; i < N; i++)
+{
+double c_ki = A[i][k]/A[k][k];
+for (int j = k; j < N; j++) {
+A[i][j] -= A[k][j]*c_ki;
+}
+B[i] -= B[k]*c_ki;
+}
+}
+}
+
+for (int k = N-1; k >= 0; k--) {
+x[k] = B[k];
+for (int i = k+1; i < N; i++) {
+x[k] -= A[k][i]*x[i];
+}
+x[k] /= A[k][k];
+}
 }
 
 
