@@ -68,10 +68,10 @@ double maxi;
  */
 void grishaevaov::lab3()
 {
-int n=N-1;
+//int n=N-1; 
   double AA[N];
     double B[N];
-int z;
+//int z;
  AA[0]=-A[0][1]/A[0][0];
  B[0]=b[0]/A[0][0];
 
@@ -173,7 +173,7 @@ break;
 } while(flag == 1); 
 }
 
-void MatrVekt(int N, double **A, double *V, double *R)
+static void MatrVekt(int N, double **A, double *V, double *R)
 {
 for(int i=0; i<N; i++)
         {
@@ -191,7 +191,7 @@ void grishaevaov::lab6()
 double *R = new double [N];
 double *Delta = new double [N];
 double *TempX = new double[N];
-double *x = new double[N];
+//double *x = new double[N];
 double maxi=0.0, Tau=0.0, TempTau=0.0;
 double eps = 0.0000001;
 for (int i=0; i<N; i++)
