@@ -5,7 +5,7 @@ using namespace std;
  */
 void ivanovdd::lab1()
 {
-std::cout << "Hello World!!!";
+std::cout << "Hello World!!!" << std::endl;
 }
 
 
@@ -14,7 +14,6 @@ std::cout << "Hello World!!!";
  */
 void ivanovdd::lab2()
 {
-
 for (int k = 0; k < N; k++) {
 	int idmax = -1;
 	double max = 0;
