@@ -68,10 +68,10 @@ double maxi;
  */
 void grishaevaov::lab3()
 {
-int n=N-1;
+//int n=N-1; 
   double AA[N];
     double B[N];
-int z;
+//int z;
  AA[0]=-A[0][1]/A[0][0];
  B[0]=b[0]/A[0][0];
 
@@ -173,15 +173,63 @@ break;
 } while(flag == 1); 
 }
 
-
+static void MatrVekt(int N, double **A, double *V, double *R)
+{
+for(int i=0; i<N; i++)
+        {
+        R[i]=0;
+        for(int j=0; j<N; j++)
+              R[i]+= A[i][j]*V[j];
+        }
+}
 
 /**
  * Метод минимальных невязок
  */
 void grishaevaov::lab6()
 {
-
+double *R = new double [N];
+double *Delta = new double [N];
+double *TempX = new double[N];
+//double *x = new double[N];
+double maxi=0.0, Tau=0.0, TempTau=0.0;
+double eps = 0.0000001;
+for (int i=0; i<N; i++)
+    TempX[i]=0;
+do
+{
+MatrVekt(N, A, TempX, R);
+for(int i=0; i<N; i++)
+    {
+    Delta[i]=R[i]-b[i];
+    }
+MatrVekt(N, A, Delta, R);
+Tau=0.0;
+TempTau=0.0;
+for(int i=0; i<N; i++)
+    {
+    Tau+=R[i]*Delta[i];
+    TempTau+=R[i]*R[i];
+    }
+Tau=Tau/TempTau;
+for(int i=0; i<N; i++)
+    x[i]=TempX[i]-Tau*Delta[i];
+maxi = fabs(x[0] - TempX[0]);
+for(int i=0; i<N; i++)
+    {
+    if(fabs(x[i]-TempX[i])>maxi)
+        maxi=fabs(x[i]-TempX[i]);
+    TempX[i]=x[i];
+    }
 }
+while (maxi>=eps);
+
+delete[] R;
+delete[] Delta;
+delete[] TempX;
+	
+}
+
 
 
 
