@@ -141,10 +141,47 @@ void biryukovaes::lab5()
  */
 void biryukovaes::lab6()
 {
-
+	double Eps = 1e-18;
+	double Del, Res, Abs;
+	double *K = new double[N];
+	double *L = new double[N];
+	double *xrez = new double[N];
+	for (int i = 0; i<N; i++)
+		xrez[i] = 0;
+	do{
+		for (int i = 0; i < N; i++) {
+			K[i] = 0;
+			for (int j = 0; j < N; j++)
+				K[i] += A[i][j] * xrez[j];
+		}
+		for (int i = 0; i < N; i++) {
+			L[i] = K[i] - b[i];
+		}
+		for (int i = 0; i < N; i++) {
+			K[i] = 0;
+			for (int j = 0; j < N; j++)
+				K[i] += A[i][j] * L[j];
+		}
+		Res = 0;
+		Abs = 0;
+		for (int i = 0; i < N; i++) {
+			Res += K[i] * L[i];
+			Abs += K[i] * K[i];
+		}
+		if (Res==Abs) Res=1;
+		else {
+		Res = Res / Abs;
+		}
+		for (int i = 0; i < N; i++)
+			x[i] = xrez[i] - Res*L[i];
+		Del = abs(x[0] - xrez[0]);
+		for (int i = 0; i < N; i++) {
+			if (abs(x[i] - xrez[i])>Del)
+				Del = abs(x[i] - xrez[i]);
+			xrez[i] = x[i];
+		}
+	} while (Eps < Del);
 }
-
-
 
 /**
  * Метод сопряженных градиентов
@@ -201,7 +238,6 @@ void biryukovaes::lab7()
 	} while (Eps < Del);
 }
 
-
 void biryukovaes::lab8()
 {
 
@@ -211,7 +247,6 @@ void biryukovaes::lab9()
 {
 
 }
-
 
 /**
  * Решение нелинейных уравнений
