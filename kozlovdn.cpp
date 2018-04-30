@@ -262,7 +262,7 @@ void kozlovdn::lab6()
  */
 void kozlovdn::lab7()
 {
-	double eps = 1e-5;
+	double eps = 1e-15;
 	double delta, r, rModul;
 	double *w = new double[N];
 	double *wp = new double[N];
