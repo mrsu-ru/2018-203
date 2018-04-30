@@ -262,13 +262,92 @@ void kozlovdn::lab6()
  */
 void kozlovdn::lab7()
 {
+	double eps = 1e-15;
+	double delta, r, rModul;
+	double *w = new double[N];
+	double *wp = new double[N];
+	double *v = new double[N];
+	double *result = new double[N];
 
+	for (int i = 0; i<N; i++)
+		result[i] = 0;
+
+	do {
+		for (int i = 0; i < N; i++) {
+			w[i] = 0;
+			for (int j = 0; j < N; j++)
+				w[i] += A[i][j] * result[j];
+		}
+
+		for (int i = 0; i < N; i++) {
+			v[i] = w[i] - b[i];
+		}
+
+		for (int i = 0; i < N; i++) {
+			w[i] = 0;
+			for (int j = 0; j < N; j++)
+				w[i] += A[i][j] * v[j];
+		}
+		
+		for (int i = 0; i < N; i++) {
+			wp[i] = 0;
+			for (int j = 0; j < N; j++) {
+				wp[i] += A[i][j] * w[j];
+			}
+		}
+		
+		r = 0;
+		rModul = 0;
+		
+		for (int i = 0; i < N; i++) {
+			r += w[i] * v[i];
+			rModul += wp[i] * w[i];
+		}
+		
+		if (r == rModul)r = 1;
+		else r = r / rModul;
+		for (int i = 0; i < N; i++)
+			x[i] = result[i] - r*v[i];
+		delta = abs(x[0] - result[0]);
+		for (int i = 0; i < N; i++) {
+			if (abs(x[i] - result[i])>delta)
+				delta = abs(x[i] - result[i]);
+			result[i] = x[i];
+		}
+	} 
+	while (eps < delta);
 }
 
 
 void kozlovdn::lab8()
 {
-
+	double * Y = new double[N];//предыдущее приближение
+	double * y = new double[N];//последующее приближение
+	double maxSob,sob,sum;
+	double eps = 1e-9;
+	for (int i = 0; i < N; i++)
+		Y[i] = 0;
+	Y[0] = 1;
+	do{
+		sum = 0;
+		for (int i = 0; i < N; i++)
+			sum += Y[i] * Y[i];
+		sob = sqrt(sum);
+		for (int i = 0; i < N; i++)
+		{
+			y[i] = 0;
+			for (int j = 0; j < N; j++)
+				y[i] += A[i][j] * Y[j] / sob;
+		}
+		sum = 0;
+		for (int i = 0; i < N; i++)
+			sum += y[i] * y[i];
+		maxSob = sqrt(sum);
+		for (int i = 0; i<N; i++)
+			Y[i] = y[i];
+	} 
+	while (abs(maxSob - sob)>eps);
+	cout << maxSob << endl;
 }
 
 

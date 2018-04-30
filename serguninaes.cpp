@@ -107,7 +107,7 @@ x[i] = 0;
 
 do {
 for (int i = 0; i < N; i++) {
-b[i] = a[i];
+a[i] = b[i];
 
 for (int k = 0; k < N; k++) {
 if (i != k) {a[i] -= A[i][k] * x[k];}
