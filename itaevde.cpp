@@ -281,7 +281,7 @@ void itaevde::lab6()
  */
 void itaevde::lab7()
 {
-	double eps = 1e-5;
+	double eps = 1e-15;
 	double delta, r, rModul;
 	
 	double *w = new double[N];
