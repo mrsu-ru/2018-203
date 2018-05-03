@@ -85,7 +85,36 @@ x[i] = P[i]*x[i+1] + BB[i];
  */
 void serguninaes::lab4()
 {
+double *D = new double[N];
+double *M = new double[N];
+double maxi, L, sum;
+double Eps = 0,00000001;
 
+for (int i = 0; i < N; i++)
+D[i] = 0;
+D[0] = 1;
+
+do{
+sum = 0;
+for (int i = 0; i < N; i++)
+sum += D[i] * D[i];
+
+L = sqrt(sum);
+for (int i = 0; i < N; i++)
+{
+M[i] = 0;
+for (int j = 0; j < N; j++)
+M[i] += A[i][j] * D[j] / L;
+}
+sum = 0;
+
+for (int i = 0; i < N; i++)
+sum += M[i] * M[i];
+maxi = sqrt(sum);
+
+for (int i = 0; i<N; i++)
+D[i] = M[i];
+} while (abs(maxi - L)>Eps);
 }
 
 
@@ -130,15 +159,62 @@ delete[] a;
 
 }
 
-
+static void MatrVekt(int N, double **A, double *V, double *R)
+{
+for(int i=0; i<N; i++)
+{
+R[i]=0;
+for(int j=0; j<N; j++)
+R[i]+= A[i][j]*V[j];
+}
+}
 
 /**
  * Метод минимальных невязок
  */
 void serguninaes::lab6()
 {
+double *R = new double [N];
+double *D = new double [N];
+double *Temp = new double[N];
+//double *x = new double[N];
+double maxi=0.0;
+double tau=0.0;
+double Temptau=0.0;
+double Eps = 0.00000001;
+
+for (int i=0; i<N; i++)
+Temp[i]=0;
+do
+{
+MatrVekt(N, A, Temp, R);
+for(int i=0; i<N; i++)
+{
+D[i]=R[i]-b[i]; //Вектор невязок
+}
+MatrVekt(N, A, D, R);
+tau=0.0;
+Temptau=0.0;
+for(int i=0; i<N; i++)
+{
+tau+=R[i]*D[i];
+Temptau+=R[i]*R[i];
+}
+tau=tau/Temptau;
+for(int i=0; i<N; i++)
+x[i]=Temp[i]-tau*D[i];
+maxi = abs(x[0] - Temp[0]);
+for(int i=0; i<N; i++)
+{
+if(abs(x[i]-Temp[i])>maxi)
+maxi=abs(x[i]-Temp[i]);
+Temp[i]=x[i];
+}
+}
+while (maxi>=eps);
 
 }
+
 
 
 
