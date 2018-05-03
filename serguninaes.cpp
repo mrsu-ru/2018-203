@@ -88,7 +88,7 @@ void serguninaes::lab4()
 double *D = new double[N];
 double *M = new double[N];
 double maxi, L, sum;
-double Eps = 0,00000001;
+double Eps = 0.00000001;
 
 for (int i = 0; i < N; i++)
 D[i] = 0;
@@ -211,7 +211,7 @@ maxi=abs(x[i]-Temp[i]);
 Temp[i]=x[i];
 }
 }
-while (maxi>=eps);
+while (maxi>=Eps);
 
 }
 
