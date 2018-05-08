@@ -247,7 +247,7 @@ void ivanovdd::lab6()
  */
 void ivanovdd::lab7()
 {
-double eps = 1e-5;
+double eps = 1e-15;
 double delta, r, rModul;
 
 double *w = new double[N];
