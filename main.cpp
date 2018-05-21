@@ -82,7 +82,7 @@ int main(int argc, char** argv)
     l = new mescheryakovam();
   }
   else  if (strcmp(argv[1], "itaevde") == 0) {
-    l = new mescheryakovam();
+    l = new itaevde();
   }
   else  if (strcmp(argv[1], "biryukovaes") == 0) {
     l = new biryukovaes();
