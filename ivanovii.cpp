@@ -1,4 +1,4 @@
-#include "ivanovii.h"
+﻿#include "ivanovii.h"
 
 /**
  * Введение в дисциплину
@@ -73,16 +73,14 @@ void ivanovii::lab8()
 
 }
 
+
 void ivanovii::lab9()
 {
 
 }
 
 
-
-
-
 std::string ivanovii::get_name()
 {
-  return "Borisov R.S.";
+  return "Malkov V.E.";
 }
