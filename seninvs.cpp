@@ -78,13 +78,39 @@ void seninvs::lab3() {
 /**
  * Метод простых итераций
  */
-void seninvs::lab4() {}
+void seninvs::lab4() {
+  double eps = 1e-13;
+  double t = 1e-5;
+  for (int i = 0; i < N; i++) {
+    x[i] = 0;
+  }
+  double x1;
+  double* xr = new double[N];
+  int st = 0;
+
+  do {
+    st++;
+    for (int i = 0; i < N; i++) {
+      xr[i] = x[i];
+      for (int k = 0; k < N; k++) xr[i] -= t * A[i][k] * x[k];
+      xr[i] += t * b[i];
+    }
+    x1 = 0.;
+    for (int i = 0; i < N; i++) {
+      x1 += (xr[i] - x[i]) * (xr[i] - x[i]);
+    }
+
+    for (int i = 0; i < N; i++) {
+      x[i] = xr[i];
+    }
+  } while (sqrt(x1) > eps);
+}
 
 /**
  * Метод Якоби
  */
 void seninvs::lab5() {
-  long double eps = 1.e-10;
+  long double eps = 0.0001;
   long double* p = new long double[N];
   long double norl;
   for (int i = 0; i < N; i++)
@@ -153,7 +179,33 @@ void seninvs::lab7() {}
 
 void seninvs::lab8() {}
 
-void seninvs::lab9() {}
+/**
+ * Нахождение наибольшего по модулю собственного значения матрицы
+ */
+
+void seninvs::lab9() {
+  double* y = new double[N];
+  double ms, s, sum;
+  double eps = 1e-9;
+  for (int i = 0; i < N; i++) y[i] = 0;
+  y[0] = 1;
+  do {
+    sum = 0;
+    for (int i = 0; i < N; i++) sum += y[i] * y[i];
+    s = sqrt(sum);
+    for (int i = 0; i < N; i++) {
+      y[i] = 0;
+      for (int j = 0; j < N; j++) y[i] += A[i][j] * y[j] / s;
+    }
+    sum = 0;
+    for (int i = 0; i < N; i++) sum += y[i] * y[i];
+    ms = sqrt(sum);
+    for (int i = 0; i < N; i++) y[i] = y[i];
+  } while (abs(ms - s) > eps);
+
+  cout << ms << endl;
+}
+
 /**
  * Метод касательных
  */
