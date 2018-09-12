@@ -3,6 +3,7 @@
 #include "lab.h"
 #include <iostream>
 #include "ivanovii.h"
+#include "ivanovdd.h"
 #include "zhalninrv.h"
 #include "scherbakovdv.h"
 #include "polyakovda.h"
@@ -17,8 +18,13 @@
 #include "grishaevaoov.h"
 #include "bulychevaoa.h"
 #include "salinaa.h"
+#include "seninvs.h"
 #include "mescheryakovam.h"
 #include "itaevde.h"
+#include "biryukovaes.h"
+#include "velmiskinaav.h"
+#include "kozlovdn.h"
+#include "pankratovdv.h"
 
 void print_usage(char* name);
 
@@ -77,7 +83,25 @@ int main(int argc, char** argv)
     l = new mescheryakovam();
   }
   else  if (strcmp(argv[1], "itaevde") == 0) {
-    l = new mescheryakovam();
+    l = new itaevde();
+  }
+  else  if (strcmp(argv[1], "biryukovaes") == 0) {
+    l = new biryukovaes();
+  }
+  else  if (strcmp(argv[1], "ivanovdd") == 0) {
+    l = new ivanovdd();
+  }
+  else  if (strcmp(argv[1], "velmiskinaav") == 0) {
+    l = new velmiskinaav();
+  }
+  else  if (strcmp(argv[1], "kozlovdn") == 0) {
+    l = new kozlovdn();
+  }
+  else  if (strcmp(argv[1], "seninvs") == 0) {
+    l = new seninvs();
+  }
+  else  if (strcmp(argv[1], "pankratovdv") == 0) {
+    l = new pankratovdv();
   }
   else  {
     print_usage(argv[0]);
